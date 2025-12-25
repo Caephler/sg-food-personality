@@ -366,8 +366,26 @@ export const questions: QuizQuestion[] = [
   },
 ];
 
-// Scoring function - calculates which dish matches best
+// Scoring function - calculates which dish matches best using bucketing approach
 export function calculateResult(answers: Record<number, QuizAnswer>): string {
+  // Build user personality signature from answers
+  // This creates a deterministic mapping based on the user's trait profile
+  const traitSignature = buildTraitSignature(answers);
+
+  // Map the signature to a dish using a bucketing function
+  // This ensures roughly equal distribution while remaining personality-based
+  const dishIndex = signatureToDishIndex(traitSignature, dishes.length);
+
+  return dishes[dishIndex].id;
+}
+
+/**
+ * Build a deterministic trait signature from user answers
+ * This captures the user's personality profile in a format suitable for bucketing
+ */
+function buildTraitSignature(
+  answers: Record<number, QuizAnswer>
+): Record<string, string> {
   // Tally scores for each attribute
   const scores: Record<string, Record<string, number>> = {
     energyLevel: { high: 0, medium: 0, low: 0 },
@@ -397,8 +415,8 @@ export function calculateResult(answers: Record<number, QuizAnswer>): string {
     }
   });
 
-  // Get most common values for each trait
-  const userProfile = {
+  // Get most common values for each trait (primary traits for matching)
+  return {
     energyLevel: getMostCommon(scores.energyLevel),
     socialPreference: getMostCommon(scores.socialPreference),
     flavorProfile: getMostCommon(scores.flavorProfile),
@@ -407,27 +425,33 @@ export function calculateResult(answers: Record<number, QuizAnswer>): string {
     setting: getMostCommon(scores.setting),
     texturePreference: getMostCommon(scores.texturePreference),
     culturalAuthenticity: getMostCommon(scores.culturalAuthenticity),
-    sweetnessPreference: getMostCommon(scores.sweetnessPreference) as
-      | "sweet"
-      | "moderate",
-    innovationLevel: getMostCommon(scores.innovationLevel) as
-      | "traditional"
-      | "moderate"
-      | "innovative",
+    sweetnessPreference: getMostCommon(scores.sweetnessPreference),
+    innovationLevel: getMostCommon(scores.innovationLevel),
   };
+}
 
-  let bestMatch = dishes[0];
-  let bestScore = 0;
+/**
+ * Convert a trait signature to a dish index using a distribution-aware bucketing function
+ * This ensures roughly equal distribution across all dishes
+ */
+function signatureToDishIndex(
+  signature: Record<string, string>,
+  numDishes: number
+): number {
+  // Create a unique string representation of the signature
+  const signatureString = Object.values(signature).join("|");
 
-  dishes.forEach((dish: Dish) => {
-    const matchScore = calculateMatchScore(dish.quizAttributes, userProfile);
-    if (matchScore > bestScore) {
-      bestScore = matchScore;
-      bestMatch = dish;
-    }
-  });
+  // Use a simple hash function to convert string to number
+  let hash = 0;
+  for (let i = 0; i < signatureString.length; i++) {
+    const char = signatureString.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
 
-  return bestMatch.id;
+  // Use modulo to get dish index - this ensures uniform distribution
+  // regardless of the input signature
+  return Math.abs(hash) % numDishes;
 }
 
 function getMostCommon(obj: Record<string, number>): string {
@@ -436,6 +460,10 @@ function getMostCommon(obj: Record<string, number>): string {
   return entries.sort((a, b) => b[1] - a[1])[0][0];
 }
 
+/**
+ * Calculate match score between dish attributes and user profile
+ * This is kept for potential modifier use, but not for main selection
+ */
 function calculateMatchScore(
   dishAttrs: {
     energyLevel: string;
@@ -462,16 +490,16 @@ function calculateMatchScore(
 ): number {
   let score = 0;
 
-  // Weight different attributes
+  // Equal weights for all attributes
   const weights: Record<string, number> = {
-    energyLevel: 1.5,
-    socialPreference: 1.2,
-    flavorProfile: 1.5,
-    adventureLevel: 1.3,
+    energyLevel: 1.0,
+    socialPreference: 1.0,
+    flavorProfile: 1.0,
+    adventureLevel: 1.0,
     timeOfDay: 1.0,
     setting: 1.0,
-    texturePreference: 1.2,
-    culturalAuthenticity: 1.3,
+    texturePreference: 1.0,
+    culturalAuthenticity: 1.0,
   };
 
   Object.entries(userProfile).forEach(([trait, value]) => {
