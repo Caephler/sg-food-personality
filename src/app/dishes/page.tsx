@@ -68,8 +68,7 @@ export default function DishesPage() {
             All Dishes 🧂
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore the full catalog of Singaporean food personalities. Find your
-            next culinary obsession!
+            Explore the full catalog of Singaporean food personalities!
           </p>
         </motion.div>
 

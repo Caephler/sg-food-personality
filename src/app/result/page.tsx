@@ -459,12 +459,7 @@ export default function ResultPage() {
                   }}
                 >
                   <div className="flex items-center justify-center gap-4">
-                    <div className="text-4xl">
-                      {pairedDish.category.includes("Hawker") ? "🍜" :
-                       pairedDish.category.includes("Street") ? "🥢" :
-                       pairedDish.category.includes("Breakfast") ? "🥪" :
-                       pairedDish.category.includes("Restaurant") ? "🦀" : "🍽️"}
-                    </div>
+                    <div className="text-4xl">{pairedDish.emoji}</div>
                     <div className="text-left">
                       <p className="font-semibold text-gray-900 group-hover:text-orange-700 transition-colors underline decoration-orange-400 decoration-2 underline-offset-2">
                         {pairedDish.name}

@@ -15,6 +15,8 @@
  * - Cultural Authenticity: root-deep | modern-fusion | street-smart
  */
 
+import { DISH_IDS } from "./dishIds";
+
 export type EnergyLevel = "high" | "medium" | "low";
 export type SocialPreference = "extrovert" | "ambivert" | "introvert";
 export type FlavorProfile = "sweet" | "savory" | "spicy" | "sour" | "balanced";
@@ -174,7 +176,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍗", "🍚", "🇸🇬", "✨"],
       internetSlang: ["bussin", "slay", "goated", "no cap"],
     },
-    pairedWith: "kaya-toast",
+    pairedWith: DISH_IDS.KAYA_TOAST,
   },
   {
     id: "char-kway-teow",
@@ -242,7 +244,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥢", "🍜", "🥚", "🦐", "💨"],
       internetSlang: ["wok hei", "bussin", "slay", "goated"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "bak-kut-teh",
@@ -284,7 +286,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦴", "🍵", "🌙", "🧠"],
       internetSlang: ["healing", "main character", "vibes"],
     },
-    pairedWith: "you-tiao",
+    pairedWith: DISH_IDS.YOU_TIAO,
   },
   {
     id: "satay",
@@ -325,7 +327,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🔥", "🍢", "🥜", "🥒", "🎉"],
       internetSlang: ["bussin", "goated", "slay"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "rojak",
@@ -366,7 +368,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥗", "🦐", "🌶️", "🍍", "🎭"],
       internetSlang: ["no thoughts", "brain dead", "slay", "iconic"],
     },
-    pairedWith: "cendol",
+    pairedWith: DISH_IDS.CENDOL,
   },
   {
     id: "nasi-lemak",
@@ -407,7 +409,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥥", "🍗", "🌶️", "🇸🇬", "👑"],
       internetSlang: ["bussin", "goated", "national treasure", "slay"],
     },
-    pairedWith: "kaya-toast",
+    pairedWith: DISH_IDS.KAYA_TOAST,
   },
   {
     id: "laksa",
@@ -474,7 +476,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🌶️", "🥥", "🌶️", "🔥", "💀"],
       internetSlang: ["bussin", "goated", "no cap", "slay", "rizz"],
     },
-    pairedWith: "cendol",
+    pairedWith: DISH_IDS.CENDOL,
   },
   {
     id: "kaya-toast",
@@ -551,7 +553,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥪", "🥚", "☕", "🇸🇬", "🫡"],
       internetSlang: ["bussin", "goated", "no thoughts", "main character"],
     },
-    pairedWith: "kopi",
+    pairedWith: DISH_IDS.KOPI,
   },
   {
     id: "kopi",
@@ -590,7 +592,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["☕", "🇸🇬", "💪", "✨"],
       internetSlang: ["bussin", "goated", "no cap"],
     },
-    pairedWith: "kaya-toast",
+    pairedWith: DISH_IDS.KAYA_TOAST,
   },
   {
     id: "soft-boiled-eggs",
@@ -627,7 +629,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥚", "✨", "💕", "😤"],
       internetSlang: ["bussin", "slay"],
     },
-    pairedWith: "kaya-toast",
+    pairedWith: DISH_IDS.KAYA_TOAST,
   },
   {
     id: "cendol",
@@ -664,7 +666,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🧊", "🍚", "🌴", "✨"],
       internetSlang: ["bussin", "slay", "no cap"],
     },
-    pairedWith: "rojak",
+    pairedWith: DISH_IDS.ROJAK,
   },
   {
     id: "carbonara-local-style",
@@ -705,7 +707,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍝", "🥓", "🇸🇬", "✨", "🎭"],
       internetSlang: ["bussin", "slay", "no cap", "goated"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "muar-otak-otak",
@@ -746,7 +748,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥘", "🌿", "🔥", "🐟", "👑"],
       internetSlang: ["bussin", "goated", "heritage", "slay"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "egg-prata",
@@ -787,7 +789,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🥚", "🍛", "🌙", "🔥"],
       internetSlang: ["bussin", "slay", "no cap", "vibes"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "fish-head-curry",
@@ -828,7 +830,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🐟", "🌶️", "🍛", "👁️", "💪"],
       internetSlang: ["slay", "goated", "courage", "no cap"],
     },
-    pairedWith: "bee-hoon-soup",
+    pairedWith: DISH_IDS.BEE_HOON_SOUP,
   },
   {
     id: "bee-hoon-soup",
@@ -869,7 +871,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "💆", "✨", "🍃", "🫶"],
       internetSlang: ["healing", "clean", "vibes", "main character"],
     },
-    pairedWith: "you-tiao",
+    pairedWith: DISH_IDS.YOU_TIAO,
   },
   {
     id: "yong-tau-foo",
@@ -910,7 +912,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥢", "🫛", "🍖", "🎯", "🧠"],
       internetSlang: ["main character", "no cap", "slay"],
     },
-    pairedWith: "bee-hoon-soup",
+    pairedWith: DISH_IDS.BEE_HOON_SOUP,
   },
   {
     id: "fried-carrot-cake",
@@ -951,7 +953,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🧡", "🍳", "🌅", "🥢", "🇸🇬"],
       internetSlang: ["bussin", "goated", "no thoughts", "slay"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "oyster-omelette",
@@ -992,7 +994,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦪", "🥚", "🔥", "⚔️", "💯"],
       internetSlang: ["slay", "no cap", "main character", "vibes"],
     },
-    pairedWith: "bee-hoon-soup",
+    pairedWith: DISH_IDS.BEE_HOON_SOUP,
   },
   {
     id: "popiah",
@@ -1033,7 +1035,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🥬", "🍤", "✨", "💅"],
       internetSlang: ["slay", "clean", "main character", "goated"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "hokkien-prawn-mee",
@@ -1074,7 +1076,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦐", "🍜", "🌊", "👑", "💯"],
       internetSlang: ["bussin", "goated", "slay", "no cap"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "singapore-crab",
@@ -1115,7 +1117,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦀", "🌶️", "🍅", "🎉", "🙌"],
       internetSlang: ["bussin", "goated", "slay", "no thoughts"],
     },
-    pairedWith: "bee-hoon-soup",
+    pairedWith: DISH_IDS.BEE_HOON_SOUP,
   },
   {
     id: "duck-rice",
@@ -1156,7 +1158,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦆", "🍚", "👑", "✨", "💅"],
       internetSlang: ["goated", "slay", "main character", "no cap"],
     },
-    pairedWith: "tea",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "pork-congee",
@@ -1197,56 +1199,57 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥣", "💕", "🫚", "🌅", "🫶"],
       internetSlang: ["healing", "vibes", "main character", "no thoughts"],
     },
-    pairedWith: "tea",
+    pairedWith: DISH_IDS.TEA,
   },
   {
-    id: "sambal-pasta",
-    emoji: "🍝",
-    name: "Sambal Pasta",
-    chineseName: "参巴意面",
+    id: DISH_IDS.SAMBAL_STINGRAY,
+    emoji: "🐟",
+    name: "Sambal Stingray",
+    chineseName: "参巴鳐",
     description:
-      "Al dente pasta tossed in spicy sambal-based sauce with local herbs, topped with a perfectly poached egg. The breakfast of champions with a spicy twist.",
+      "Char-grilled stingray topped with spicy sambal and lime, wrapped in banana leaf. The iconic Singaporean seafood delight that's pure hawker perfection.",
     personalityTraits: [
       "Spice enthusiast",
-      "Morning person with attitude",
-      "Fusion pioneer",
       "Bold and unapologetic",
-      "The early adopter",
       "Heat chaser",
-      "The friend who starts trends",
+      "Heritage lover",
+      "The life of the dinner party",
+      "Flavor warrior",
+      "The friend who adds extra sambal to everything",
     ],
     visualStyle: {
-      colors: ["#FF4500", "#FFD700", "#F5F5DC", "#228B22"],
-      mood: "Energetic, bold, and ready to conquer the day - with heat",
+      colors: ["#FF4D4D", "#FF8C00", "#FFD700", "#2C1810"],
+      mood: "Fiery and bold with warm, appetizing tones",
     },
-    quote: "Breakfast is better with a kick. 🌶️☀️",
-    category: "Modern Fusion",
+    quote: "Leaf-wrapped, flame-kissed, pure Singapore! 🐟🍃",
+    category: "Hawker Classic",
     quizAttributes: {
-      energyLevel: "high",
-      socialPreference: "ambivert",
+      energyLevel: "medium",
+      socialPreference: "extrovert",
       flavorProfile: "spicy",
-      adventureLevel: "adventurous",
-      timeOfDay: "morning",
-      setting: "moderate",
-      texturePreference: "chewy",
-      culturalAuthenticity: "modern-fusion",
+      adventureLevel: "moderate",
+      timeOfDay: "evening",
+      setting: "casual",
+      texturePreference: "soft",
+      culturalAuthenticity: "root-deep",
     },
     memeContent: {
-      tiktokCaption: "sambal pasta morning gang rise up 🌶️🍝☀️",
-      vibeCheck: "spice god energy",
-      memePotential: "the sambal wakes up everything 🔥💯",
-      emojiCombo: ["🍝", "☀️", "🔥", "👑"],
-      internetSlang: ["bussin", "goated", "no cap", "slay"],
+      tiktokCaption:
+        "POV: You got the last piece of stingray at the hawker centre 🐟🔥",
+      vibeCheck: "🔥🔥🔥🔥🔥",
+      memePotential: "High",
+      emojiCombo: ["🐟", "🌶️", "🍃", "🔥"],
+      internetSlang: ["No cap this slaps"],
     },
-    pairedWith: "kaya-toast",
+    pairedWith: DISH_IDS.KAYA_TOAST,
   },
   {
-    id: "taugeh-ipoh-hor-fun",
+    id: DISH_IDS.HOR_FUN,
     emoji: "🍜",
-    name: "Taugeh & Ipoh Hor Fun",
-    chineseName: "芽菇伊面河",
+    name: "Hor Fun",
+    chineseName: "河粉",
     description:
-      "Flat rice noodles in a light, clear prawn and chicken broth, topped with bean sprouts and spring onions. The clean, elegant dish from Ipoh that proves restraint is an art.",
+      "Silky smooth flat rice noodles in a light, clear prawn and chicken broth, topped with bean sprouts and spring onions. The elegant Ipoh classic that proves restraint is an art.",
     personalityTraits: [
       "Refined and elegant",
       "Clean eating champion",
@@ -1280,7 +1283,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "🎋", "🌿", "✨", "👑"],
       internetSlang: ["slay", "goated", "clean", "main character"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "minced-meat-noodle",
@@ -1321,7 +1324,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "💪", "🎯", "🧠", "⚔️"],
       internetSlang: ["no cap", "slay", "main character", "goated"],
     },
-    pairedWith: "tea",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "wanton-mee",
@@ -1362,7 +1365,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥟", "🍜", "👑", "✨", "🏆"],
       internetSlang: ["goated", "slay", "no cap", "bussin"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "curry-rice",
@@ -1403,7 +1406,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍛", "🍚", "🍗", "🌊", "💯"],
       internetSlang: ["bussin", "slay", "vibes", "main character"],
     },
-    pairedWith: "teh-tarik",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "chee-cheong-fun",
@@ -1444,7 +1447,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🎋", "✨", "💅", "👑"],
       internetSlang: ["slay", "main character", "goated", "clean"],
     },
-    pairedWith: "tea",
+    pairedWith: DISH_IDS.TEA,
   },
   {
     id: "tea",
@@ -1482,7 +1485,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫖", "✨", "💪", "👑"],
       internetSlang: ["bussin", "slay", "goated"],
     },
-    pairedWith: "satay",
+    pairedWith: DISH_IDS.SATAY,
   },
   {
     id: "you-tiao",
@@ -1521,7 +1524,7 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥢", "🔥", "💯", "🌅"],
       internetSlang: ["bussin", "goated", "slay"],
     },
-    pairedWith: "pork-congee",
+    pairedWith: DISH_IDS.PORK_CONGEE,
   },
 ];
 
