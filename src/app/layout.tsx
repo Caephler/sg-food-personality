@@ -1,10 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Long_Cang, Lato } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
+// Chinese font for text
+const longCang = Long_Cang({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-long-cang",
+});
+
+// BBH Bogle font for headings (English Display font from local file)
+const bbhBogle = localFont({
+  src: "../styles/fonts/BBH-Bogle.ttf",
+  variable: "--font-bbh-bogle",
+  display: "swap",
+});
+
+// English Text font for body text
+const lato = Lato({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-lato",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} min-h-screen`}>{children}</body>
+      <body className={`${longCang.variable} ${bbhBogle.variable} ${lato.variable} min-h-screen`}>
+        {children}
+      </body>
     </html>
   );
 }

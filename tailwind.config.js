@@ -16,7 +16,14 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        // Chinese font for text
+        chinese: ["var(--font-long-cang)", "cursive"],
+        // English Display font for headings (BBH Bogle)
+        display: ["var(--font-bbh-bogle)", "serif"],
+        // English Text font for body text
+        text: ["var(--font-lato)", "system-ui", "sans-serif"],
+        // Fallback sans
+        sans: ["var(--font-lato)", "system-ui", "sans-serif"],
       },
     },
   },

@@ -3,7 +3,34 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { dishes } from "@/data/dishes";
+import { questions } from "@/data/questions";
+
+// Singaporean food emojis for rotation
+const FOOD_EMOJIS = ["🦀", "🥢", "🍜", "🍤", "🍚", "🥘", "🦐", "🍢", "🍛", "🥡"];
+
+function EmojiRotation() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % FOOD_EMOJIS.length);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      key={currentIndex}
+      initial={{ scale: 0.8, opacity: 0.5, rotate: -10 }}
+      animate={{ scale: 1, opacity: 1, rotate: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="text-5xl"
+    >
+      {FOOD_EMOJIS[currentIndex]}
+    </motion.div>
+  );
+}
 
 export default function HomePage() {
   const router = useRouter();
@@ -17,206 +44,158 @@ export default function HomePage() {
     router.push("/quiz");
   };
 
-  // Featured dishes for the hero section
-  const featuredDishes = dishes.slice(0, 6);
+  const questionCount = questions.length;
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute top-20 left-10 w-32 h-32 bg-red-100 dark:bg-red-900/30 rounded-full opacity-50"
-            animate={{
-              y: [0, -20, 0],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute top-40 right-20 w-24 h-24 bg-red-200 dark:bg-red-800/30 rounded-full opacity-30"
-            animate={{
-              y: [0, 15, 0],
-              scale: [1, 0.9, 1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
-          />
-          <motion.div
-            className="absolute bottom-40 left-1/4 w-20 h-20 bg-white dark:bg-gray-700 rounded-full opacity-40"
-            animate={{
-              y: [0, -25, 0],
-              x: [0, 10, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          />
-        </div>
+    <main className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-rose-50 via-white to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute -top-20 -left-20 w-96 h-96 bg-rose-200/40 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 30, 0],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/2 -right-20 w-80 h-80 bg-amber-200/40 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            y: [0, -20, 0],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div
+          className="absolute -bottom-20 left-1/3 w-72 h-72 bg-red-200/30 rounded-full blur-3xl"
+          animate={{
+            scale: [1.1, 0.9, 1.1],
+            x: [0, 20, 0],
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+      </div>
 
-        <div className="relative max-w-4xl mx-auto px-4 py-20 text-center">
-          {/* Singapore flag inspired decorative element */}
-          <motion.div
-            className="flex justify-center mb-8"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          >
-            <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center animate-pulse-glow">
-              <span className="text-4xl">🦁</span>
-            </div>
-          </motion.div>
+      {/* Floating decorative elements */}
+      <motion.div
+        className="absolute top-24 left-8 text-4xl opacity-60"
+        animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+        transition={{ duration: 4, repeat: Infinity }}
+      >
+        🍜
+      </motion.div>
+      <motion.div
+        className="absolute top-32 right-12 text-3xl opacity-50"
+        animate={{ y: [0, 12, 0], rotate: [0, -8, 8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+      >
+        🥢
+      </motion.div>
+      <motion.div
+        className="absolute bottom-40 left-12 text-3xl opacity-50"
+        animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, delay: 1 }}
+      >
+        🦀
+      </motion.div>
+      <motion.div
+        className="absolute bottom-32 right-8 text-4xl opacity-60"
+        animate={{ y: [0, 8, 0], rotate: [0, -5, 5, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, delay: 1.5 }}
+      >
+        🍤
+      </motion.div>
 
-          {/* Main headline */}
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ delay: 0.2 }}
-          >
-            Which{" "}
-            <span className="text-red-600 relative">
-              Singaporean Dish
-              <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-red-600"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              />
-            </span>{" "}
-            Matches Your Personality?
-          </motion.h1>
-
-          <motion.p
-            className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-            transition={{ delay: 0.3 }}
-          >
-            Discover your perfect food match in just 10 questions! 🍜
-          </motion.p>
-
-          {/* Start Button */}
-          <motion.button
-            onClick={handleStartQuiz}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-red-600 text-white text-xl font-bold rounded-full shadow-lg hover:bg-red-700 hover:shadow-xl transition-all duration-300 hover:scale-105"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.8 }}
-            transition={{ delay: 0.4, type: "spring", stiffness: 200, damping: 15 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-2xl">🚀</span>
-            Start the Quiz
-            <motion.span
-              className="absolute -right-2 -top-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              Free!
-            </motion.span>
-          </motion.button>
-
-          {/* Quick stats */}
-          <motion.div
-            className="flex justify-center gap-8 mt-12 text-gray-500 dark:text-gray-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isLoaded ? 1 : 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            <div className="text-center">
-              <div className="text-2xl font-bold text-red-600">10</div>
-              <div className="text-sm">Questions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-red-600">24</div>
-              <div className="text-sm">Dishes</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-red-600">2min</div>
-              <div className="text-sm">Quick!</div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Dishes Preview */}
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.h2
-            className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Some of the Dishes You Might Match With:
-          </motion.h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {featuredDishes.map((dish, index) => (
-              <motion.div
-                key={dish.id}
-                className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="text-4xl mb-3">
-                  {dish.category.includes("Hawker") ? "🍜" :
-                   dish.category.includes("Street") ? "🥢" :
-                   dish.category.includes("Breakfast") ? "🥪" :
-                   dish.category.includes("Restaurant") ? "🦀" : "🍽️"}
-                </div>
-                <h3 className="font-bold text-gray-900 dark:text-white text-lg">{dish.name}</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">{dish.chineseName}</p>
-              </motion.div>
-            ))}
+      {/* Main content */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
+        {/* Lion head emblem */}
+        <motion.div
+          className="mb-8 relative"
+          initial={{ scale: 0, rotate: -10 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <div className="w-24 h-24 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg shadow-red-500/30">
+            <EmojiRotation />
           </div>
-        </div>
-      </section>
+          <motion.div
+            className="absolute -inset-2 border-2 border-red-400 rounded-full opacity-50"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.3, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </motion.div>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-red-600 to-red-700">
-        <div className="max-w-2xl mx-auto text-center px-4">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to find out?
-          </h2>
-          <p className="text-red-100 mb-8">
-            Join thousands of Singaporeans who have discovered their food personality!
-          </p>
-          <motion.button
-            onClick={handleStartQuiz}
-            className="inline-flex items-center gap-3 px-10 py-4 bg-white text-red-600 text-xl font-bold rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-105"
-            whileTap={{ scale: 0.95 }}
+        {/* Headline */}
+        <motion.h1
+          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-800 dark:text-white text-center mb-4 leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          What Singaporean Dish
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
+            Matches Your Personality?
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          className="text-lg md:text-xl font-text text-gray-600 dark:text-gray-300 text-center mb-2 max-w-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+          transition={{ delay: 0.35, duration: 0.6 }}
+        >
+          Discover your perfect food match in {questionCount} quick questions
+        </motion.p>
+
+        {/* Tags */}
+        <motion.div
+          className="flex items-center gap-3 mb-10"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.9 }}
+          transition={{ delay: 0.45, duration: 0.5 }}
+        >
+          <span className="px-4 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-text text-gray-600 dark:text-gray-300 shadow-sm">
+            {questionCount} questions
+          </span>
+          <span className="px-4 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-text text-gray-600 dark:text-gray-300 shadow-sm">
+            24 dishes
+          </span>
+          <span className="px-4 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-text text-gray-600 dark:text-gray-300 shadow-sm">
+            ~2 min
+          </span>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.button
+          onClick={handleStartQuiz}
+          className="group relative inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white text-xl font-display font-bold rounded-full shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20, scale: isLoaded ? 1 : 0.9 }}
+          transition={{ delay: 0.55, type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <span className="text-2xl group-hover:animate-bounce">🚀</span>
+          Start the Quiz
+          <motion.span
+            className="absolute -right-1 -top-1 bg-amber-400 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8, type: "spring" }}
           >
-            Let's Go! 🎉
-          </motion.button>
-        </div>
-      </section>
+            Free!
+          </motion.span>
+        </motion.button>
 
-      {/* Footer */}
-      <footer className="py-8 bg-gray-900 text-gray-400 text-center">
-        <p className="text-sm">
+        {/* Footer note */}
+        <motion.p
+          className="absolute bottom-8 text-sm font-text text-gray-500 dark:text-gray-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+        >
           Made with ❤️ for Singaporeans everywhere 🇸🇬
-        </p>
-        <p className="text-xs mt-2">
-          Share with your friends and compare results!
-        </p>
-      </footer>
+        </motion.p>
+      </div>
     </main>
   );
 }

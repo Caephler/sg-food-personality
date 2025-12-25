@@ -173,7 +173,7 @@ export default function ResultPage() {
           animate={{ opacity: 1 }}
         >
           <div className="text-6xl mb-4 animate-bounce">🍜</div>
-          <p className="text-xl text-gray-700 font-medium">Calculating your result...</p>
+          <p className="text-xl font-text text-gray-700 font-medium">Calculating your result...</p>
           <motion.div
             className="mt-4 w-48 h-2 bg-white/50 rounded-full mx-auto overflow-hidden backdrop-blur-sm"
             initial={{ opacity: 0 }}
@@ -231,16 +231,16 @@ export default function ResultPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="text-gray-700/80 mb-2 font-medium">Your Singaporean Food Personality Is...</p>
+          <p className="font-text text-gray-700/80 mb-2 font-medium">Your Singaporean Food Personality Is...</p>
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-gray-900 drop-shadow-sm"
+            className="text-4xl md:text-5xl font-display font-bold text-gray-900 drop-shadow-sm"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
             {displayName}
           </motion.h1>
-          <p className="text-2xl text-gray-800/80 mt-2 font-medium">{displayChineseName}</p>
+          <p className="text-2xl font-chinese text-gray-800/80 mt-2 font-medium">{displayChineseName}</p>
           
           {/* Modifier Badge */}
           {activeModifier && (
@@ -301,7 +301,7 @@ export default function ResultPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <p className="text-lg font-medium text-gray-800 italic">
+                <p className="text-lg font-text font-medium text-gray-800 italic">
                   "{result.memeContent.tiktokCaption}"
                 </p>
                 <div className="flex gap-2 mt-3">
@@ -336,7 +336,6 @@ export default function ResultPage() {
               </motion.div>
             )}
 
-{console.log({ pairedDish,})}
             {/* Quote */}
             <motion.blockquote
               className="text-xl text-gray-700 italic text-center mb-6 leading-relaxed"
