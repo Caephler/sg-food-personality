@@ -42,7 +42,8 @@ export const charKwayTeow: DishBase = {
     {
       id: "extra-char-ckt",
       name: "Extra Char Kway Teow",
-      description: "For the wok hei maximalist",
+      description:
+        "Wok hei isn't a vibe, it's a LIFESTYLE. You live for that smoky char and the drama of watching the uncle work the wok",
       triggerTrait: "flavorProfile",
       triggerThreshold: 50,
       modifierTraits: { flavorProfile: "savory" },
@@ -52,7 +53,8 @@ export const charKwayTeow: DishBase = {
     {
       id: "cockles-ckt",
       name: "Cockles Loaded CKT",
-      description: "The sea food lover's dream",
+      description:
+        "When it comes to seafood, you don't hold back. The more the merrier - cockles gang rise up! 🦪",
       triggerTrait: "adventureLevel",
       triggerThreshold: 50,
       modifierTraits: { adventureLevel: "adventurous" },

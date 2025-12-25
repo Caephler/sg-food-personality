@@ -34,6 +34,20 @@ export const bakKutTeh: DishBase = {
     texturePreference: "soft",
     culturalAuthenticity: "root-deep",
   },
+  hasModifiers: true,
+  modifiers: [
+    {
+      id: "herbal-soul",
+      name: "Herbal Soul",
+      description:
+        "You're all about that healing life. The herbal broth speaks to your soul, and 4 AM philosophical conversations are your love language",
+      triggerTrait: "energyLevel",
+      triggerThreshold: 30,
+      modifierTraits: { energyLevel: "low" },
+      memeCaption: "4am bkt thoughts be hitting different 🧠✨🍖",
+      emojiCombo: ["🍖", "🍵", "🌙", "🧠"],
+    },
+  ],
   memeContent: {
     tiktokCaption: "4am bkt thoughts be like 🧠✨",
     vibeCheck: "old soul but make it nightlife",

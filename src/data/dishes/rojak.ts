@@ -33,6 +33,20 @@ export const rojak: DishBase = {
     texturePreference: "varied",
     culturalAuthenticity: "street-smart",
   },
+  hasModifiers: true,
+  modifiers: [
+    {
+      id: "local-fusion-queen",
+      name: "Local Fusion Queen/King",
+      description:
+        "You live at the intersection of chaos and deliciousness. Sweet, spicy, savory, strange? Yes please, all of it!",
+      triggerTrait: "culturalAuthenticity",
+      triggerThreshold: 30,
+      modifierTraits: { culturalAuthenticity: "modern-fusion" },
+      memeCaption: "my palate is too sophisticated for regular food 🎭🌏✨",
+      emojiCombo: ["🎭", "🌏", "🍍", "🦐"],
+    },
+  ],
   memeContent: {
     tiktokCaption: "rojak brain rot be hitting different rn 🧠💀",
     vibeCheck: "chaos goblin but elegant",

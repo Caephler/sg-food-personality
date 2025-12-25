@@ -1,4 +1,5 @@
 import { DISH_IDS } from "../dishIds";
+
 import type { DishBase } from "../types";
 
 export const laksa: DishBase = {
@@ -33,6 +34,20 @@ export const laksa: DishBase = {
     texturePreference: "soft",
     culturalAuthenticity: "root-deep",
   },
+  hasModifiers: true,
+  modifiers: [
+    {
+      id: "spice-level-max",
+      name: "Spice Level: Maximum",
+      description:
+        "You don't do 'mild'. When it comes to laksa, you want your tongue to file a police report. Bring on the heat!",
+      triggerTrait: "adventureLevel",
+      triggerThreshold: 30,
+      modifierTraits: { adventureLevel: "adventurous" },
+      memeCaption: "spice level:maximum certified 💀🔥🌶️",
+      emojiCombo: ["🌶️", "🔥", "💀", "👅"],
+    },
+  ],
   memeContent: {
     tiktokCaption: "no thoughts just laksa at 2am 🦞🔥",
     vibeCheck: "can you handle the heat?",

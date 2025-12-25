@@ -33,6 +33,20 @@ export const satay: DishBase = {
     texturePreference: "chewy",
     culturalAuthenticity: "root-deep",
   },
+  hasModifiers: true,
+  modifiers: [
+    {
+      id: "peanut-butter-boss",
+      name: "Peanut Butter Boss",
+      description:
+        "The peanut sauce is the MAIN EVENT. You didn't come for the meat, you came for that chunky, creamy, absolutely addictive peanut dip",
+      triggerTrait: "flavorProfile",
+      triggerThreshold: 30,
+      modifierTraits: { flavorProfile: "savory" },
+      memeCaption: "peanut sauce gang where u at 🫙🥜✨",
+      emojiCombo: ["🥜", "🫙", "🍢", "👅"],
+    },
+  ],
   memeContent: {
     tiktokCaption: "satay uncle calling is my ringtone 🔥🍢",
     vibeCheck: "the ultimate wingman",

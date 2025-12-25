@@ -42,7 +42,8 @@ export const hainaneseChickenRice: DishBase = {
     {
       id: "premium-chicken-rice",
       name: "Premium Zi Char Chicken Rice",
-      description: "The upgrade you didn't know you needed",
+      description:
+        "You don't just eat chicken rice, you EXPERIENCE it. Sometimes you gotta treat yourself to the upgraded version, no regrets",
       triggerTrait: "setting",
       triggerThreshold: 50,
       modifierTraits: { setting: "elegant" },
@@ -52,7 +53,8 @@ export const hainaneseChickenRice: DishBase = {
     {
       id: "spicy-chicken-rice",
       name: "Spicy Garlic Chicken Rice",
-      description: "For those who like it with extra heat",
+      description:
+        "You believe good food should make you sweat a little (in a good way). That garlicky spicy sauce hits different",
       triggerTrait: "flavorProfile",
       triggerThreshold: 20,
       modifierTraits: { flavorProfile: "spicy" },
