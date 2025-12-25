@@ -18,7 +18,7 @@ export type QuizAnswer = {
     timeOfDay?: "morning" | "afternoon" | "evening" | "night";
     setting?: "casual" | "moderate" | "elegant";
     texturePreference?: "soft" | "chewy" | "crunchy" | "varied";
-    culturalAuthenticity?: "root-deep" | "street-smart";
+    culturalAuthenticity?: "root-deep" | "modern-fusion" | "street-smart";
     sweetnessPreference?: "sweet" | "moderate";
     innovationLevel?: "traditional" | "moderate" | "innovative";
   };
@@ -239,7 +239,7 @@ export const questions: QuizQuestion[] = [
       {
         id: "c",
         text: "Mixing cultures is what makes SG food unique!",
-        traits: { culturalAuthenticity: "street-smart" },
+        traits: { culturalAuthenticity: "modern-fusion" },
       },
       {
         id: "d",
@@ -377,7 +377,11 @@ export function calculateResult(answers: Record<number, QuizAnswer>): string {
     timeOfDay: { morning: 0, afternoon: 0, evening: 0, night: 0 },
     setting: { casual: 0, moderate: 0, elegant: 0 },
     texturePreference: { soft: 0, chewy: 0, crunchy: 0, varied: 0 },
-    culturalAuthenticity: { "root-deep": 0, "street-smart": 0 },
+    culturalAuthenticity: {
+      "root-deep": 0,
+      "modern-fusion": 0,
+      "street-smart": 0,
+    },
     sweetnessPreference: { sweet: 0, moderate: 0 },
     innovationLevel: { traditional: 0, moderate: 0, innovative: 0 },
   };
@@ -504,7 +508,11 @@ export function getActiveModifier(
     innovationLevel: { traditional: 0, moderate: 0, innovative: 0 },
     socialPreference: { extrovert: 0, ambivert: 0, introvert: 0 },
     timeOfDay: { morning: 0, afternoon: 0, evening: 0, night: 0 },
-    culturalAuthenticity: { "root-deep": 0, "street-smart": 0 },
+    culturalAuthenticity: {
+      "root-deep": 0,
+      "modern-fusion": 0,
+      "street-smart": 0,
+    },
   };
 
   // Count how many questions ask about each trait (for percentage calculation)
