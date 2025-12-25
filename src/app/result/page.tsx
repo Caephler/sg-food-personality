@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { dishes, type Dish } from "@/data/dishes";
 import { questions, type QuizAnswer } from "@/data/questions";
-import ShareButtons from "@/components/ShareButtons";
 
 export default function ResultPage() {
   const router = useRouter();
@@ -271,16 +270,6 @@ export default function ResultPage() {
               </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* Share Section */}
-        <motion.div
-          className="mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <ShareButtons dish={result} />
         </motion.div>
 
         {/* Retake Quiz */}

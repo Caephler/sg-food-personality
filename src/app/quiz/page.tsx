@@ -17,12 +17,15 @@ export default function QuizPage() {
 
   const handleAnswerSelect = (answerId: string) => {
     setSelectedAnswer(answerId);
+    // Immediately proceed to next question
+    handleNext(answerId);
   };
 
-  const handleNext = () => {
-    if (!question || !selectedAnswer) return;
+  const handleNext = (answerId?: string) => {
+    const selectedAnswerId = answerId || selectedAnswer;
+    if (!question || !selectedAnswerId) return;
 
-    const answer = question.answers.find((a) => a.id === selectedAnswer);
+    const answer = question.answers.find((a) => a.id === selectedAnswerId);
     if (!answer) return;
 
     const newAnswers = { ...answers, [currentQuestion]: answer };
@@ -85,31 +88,8 @@ export default function QuizPage() {
               ))}
             </div>
 
-            {/* Next Button */}
-            <motion.button
-              onClick={handleNext}
-              disabled={!selectedAnswer}
-              className={`w-full mt-6 py-4 rounded-xl font-bold text-lg transition-all ${
-                selectedAnswer
-                  ? "bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
-                  : "bg-gray-200 dark:bg-gray-600 text-gray-400 dark:text-gray-300 cursor-not-allowed"
-              }`}
-              whileTap={selectedAnswer ? { scale: 0.98 } : {}}
-            >
-              {currentQuestion === questions.length ? "See My Result! 🎉" : "Next Question →"}
-            </motion.button>
           </motion.div>
         </AnimatePresence>
-
-        {/* Back Button */}
-        {currentQuestion > 1 && (
-          <button
-            onClick={() => setCurrentQuestion(currentQuestion - 1)}
-            className="mt-4 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm"
-          >
-            ← Go Back
-          </button>
-        )}
       </div>
     </main>
   );
