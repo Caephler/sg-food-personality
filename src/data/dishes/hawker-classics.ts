@@ -529,7 +529,7 @@ export const sambalStingray: DishBase = {
     tiktokCaption:
       "POV: You got the last piece of stingray at the hawker centre 🐟🔥",
     vibeCheck: "🔥🔥🔥🔥🔥",
-    memePotential: "High",
+    memePotential: "the sambal sets your mouth on fire 🔥💯",
     emojiCombo: ["🐟", "🌶️", "🍃", "🔥"],
     internetSlang: ["No cap this slaps"],
   },
