@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { dishes, type Dish } from "@/data/dishes";
+import { dishes, type Dish } from "@/data/dishes/index";
 
 export default function DishesPage() {
   const searchParams = useSearchParams();
@@ -194,10 +194,10 @@ export default function DishesPage() {
                     )}
 
                     {/* Best Paired With Indicator */}
-                    {dish.pairedWith && (
+                    {dish.pairedWith && dish.pairedWith.length > 0 && (
                       <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
                         <span>✨</span>
-                        <span>Best paired with {dishes.find(d => d.id === dish.pairedWith)?.name || 'another dish'}</span>
+                        <span>Best paired with {dishes.find(d => d.id === dish.pairedWith![0].dishId)?.name || 'another dish'}</span>
                       </div>
                     )}
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { dishes, type Dish, type DishModifier } from "@/data/dishes";
+import { dishes, type Dish, type DishModifier, getBestPairing } from "@/data/dishes";
 import { type QuizAnswer, getActiveModifier } from "@/data/questions";
 
 export default function ResultPage() {
@@ -25,10 +25,9 @@ export default function ResultPage() {
       if (dish) {
         setResult(dish);
         setActiveModifier(null);
-        if (dish.pairedWith) {
-          const paired = dishes.find((d) => d.id === dish.pairedWith);
-          setPairedDish(paired || null);
-        }
+        // Use getBestPairing to get the best paired dish
+        const bestPairing = getBestPairing(dish.id);
+        setPairedDish(bestPairing?.dish || null);
         setLoading(false);
         return;
       }
@@ -52,11 +51,9 @@ export default function ResultPage() {
       const modifier = getActiveModifier(calculatedResult, answers);
       setActiveModifier(modifier);
       
-      // Get paired dish
-      if (calculatedResult.pairedWith) {
-        const paired = dishes.find((d) => d.id === calculatedResult.pairedWith);
-        setPairedDish(paired || null);
-      }
+      // Get paired dish using getBestPairing
+      const bestPairing = getBestPairing(calculatedResult.id);
+      setPairedDish(bestPairing?.dish || null);
       
       setResult(calculatedResult);
     } catch (error) {
@@ -296,7 +293,7 @@ export default function ResultPage() {
             }}
           >
             <div className="flex gap-4 text-6xl">
-              {displayEmojis.map((emoji, index) => (
+              {displayEmojis.map((emoji: string, index: number) => (
                 <motion.span
                   key={index}
                   className="animate-float"
@@ -441,7 +438,7 @@ export default function ResultPage() {
             )}
 
             {/* Best Paired With Section */}
-            {pairedDish && result.pairedWith && (
+            {pairedDish && (
               <motion.div
                 className="border-t pt-6 mb-6"
                 initial={{ opacity: 0 }}

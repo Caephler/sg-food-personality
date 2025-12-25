@@ -1,0 +1,44 @@
+import { DISH_IDS } from "../dishIds";
+import type { DishBase } from "../types";
+
+export const bakKutTeh: DishBase = {
+  id: DISH_IDS.BAK_KUT_TEH,
+  emoji: "🍖",
+  name: "Bak Kut Teh",
+  chineseName: "肉骨茶",
+  description:
+    "Ribs simmered in a complex herbal broth until fall-off-the-bone tender. Best enjoyed at 4 AM after a night out, when philosophical conversations with uncles flow as freely as the tea.",
+  personalityTraits: [
+    "Wise and introspective",
+    "Takes time to appreciate",
+    "Deep and complex once you get to know",
+    "Night owl philosopher",
+    "Healing vibes",
+    "Patient and gentle",
+    "The wise elder who still knows how to have fun",
+  ],
+  visualStyle: {
+    colors: ["#8B4513", "#D2691E", "#F5DEB3", "#2F4F4F"],
+    mood: "Contemplative, soothing, and wise - conversations happen here",
+  },
+  quote:
+    "The herbal broth of life - takes time to simmer, but worth every sip.",
+  category: "Hawker Classic",
+  quizAttributes: {
+    energyLevel: "low",
+    socialPreference: "ambivert",
+    flavorProfile: "savory",
+    adventureLevel: "traditional",
+    timeOfDay: "night",
+    setting: "moderate",
+    texturePreference: "soft",
+    culturalAuthenticity: "root-deep",
+  },
+  memeContent: {
+    tiktokCaption: "4am bkt thoughts be like 🧠✨",
+    vibeCheck: "old soul but make it nightlife",
+    memePotential: "bone marrow just hit different at 3am 🦴💀",
+    emojiCombo: ["🦴", "🍵", "🌙", "🧠"],
+    internetSlang: ["healing", "main character", "vibes"],
+  },
+};

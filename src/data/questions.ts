@@ -5,7 +5,7 @@
  * 12 questions covering the 8 quiz attributes + 2 bonus fun questions + 2 new texture/innovation questions
  */
 
-import { dishes, type Dish, type DishModifier } from "./dishes";
+import { dishes, type Dish, type DishModifier } from "./dishes/index";
 
 export type QuizAnswer = {
   id: string;
