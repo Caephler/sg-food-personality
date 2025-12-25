@@ -39,9 +39,9 @@ function DishesContent() {
 
   return (
     <main className="min-h-screen p-4 md:p-8 bg-gradient-to-br from-orange-50 via-white to-yellow-50">
-      {/* Sticky Back Button - Prominent on Mobile */}
+      {/* Sticky Navigation Buttons */}
       <motion.div
-        className="sticky top-4 z-10 mb-6"
+        className="sticky top-4 z-10 mb-6 flex gap-2"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -50,9 +50,18 @@ function DishesContent() {
           className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm shadow-lg rounded-full text-gray-700 font-medium hover:bg-orange-100 hover:text-orange-600 transition-colors text-sm md:text-base"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span>Home</span>
+        </Link>
+        <Link
+          href="/result"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm shadow-lg rounded-full text-gray-700 font-medium hover:bg-orange-100 hover:text-orange-600 transition-colors text-sm md:text-base"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
           </svg>
-          <span className="hidden sm:inline">Back to Home</span>
+          <span className="hidden sm:inline">Back to Result</span>
           <span className="sm:hidden">Back</span>
         </Link>
       </motion.div>
