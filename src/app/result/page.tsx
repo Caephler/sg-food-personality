@@ -217,8 +217,8 @@ function ResultContent() {
     );
   }
 
-  // Use modifier name and emoji if active, otherwise use base dish
-  const displayName = activeModifier ? activeModifier.name : result.name;
+  // Show both dish name and modifier (e.g., "Spice Level: Maximum Laksa")
+  const displayName = activeModifier ? `${activeModifier.name} ${result.name}` : result.name;
   const displayChineseName = activeModifier ? result.chineseName : result.chineseName;
   const displayEmoji = activeModifier?.emojiCombo?.[0] || 
     (result.category.includes("Hawker") ? "🍜" :
