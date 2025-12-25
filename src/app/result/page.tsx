@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { dishes, type Dish, type DishModifier } from "@/data/dishes";
 import { questions, type QuizAnswer, getActiveModifier, getPairedDish } from "@/data/questions";
@@ -479,9 +480,9 @@ export default function ResultPage() {
           </div>
         </motion.div>
 
-        {/* Retake Quiz */}
+        {/* Retake Quiz & View All Dishes */}
         <motion.div
-          className="mt-6 text-center"
+          className="mt-6 flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -492,6 +493,12 @@ export default function ResultPage() {
           >
             Take the quiz again →
           </button>
+          <Link
+            href="/dishes"
+            className="text-orange-700 hover:text-orange-900 font-medium transition-colors px-6 py-2 bg-orange-100/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md text-center"
+          >
+            View All Dishes 📋
+          </Link>
         </motion.div>
 
         {/* Footer */}

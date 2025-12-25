@@ -35,26 +35,26 @@ export const questions: QuizQuestion[] = [
   // Q1: Energy Level
   {
     id: 1,
-    question: "It's 3PM on a Saturday. What's your vibe?",
+    question: "It's 3PM on a Saturday. What's ur vibe?",
     answers: [
       {
         id: "a",
-        text: "Just finished my second workout of the day 💪",
+        text: "Just finished gym #2 today 💪 vibe is immaculate",
         traits: { energyLevel: "high" },
       },
       {
         id: "b",
-        text: "Chilling at home, maybe meeting friends later",
+        text: "Content lying in bed scrolling thru Tiktok... maybe meet friends later idk 🤔",
         traits: { energyLevel: "medium" },
       },
       {
         id: "c",
-        text: "Still in bed honestly... zzz",
+        text: "Sleep is my personality trait rn 💀 zzz",
         traits: { energyLevel: "low" },
       },
       {
         id: "d",
-        text: "Working on my side hustle",
+        text: "Grinding on my side hustle, passive income don't build itself 🚀",
         traits: { energyLevel: "high" },
       },
     ],
@@ -62,26 +62,26 @@ export const questions: QuizQuestion[] = [
   // Q2: Social Preference
   {
     id: 2,
-    question: "Your ideal weekend activity with friends:",
+    question: "Ur ideal weekend with friends:",
     answers: [
       {
         id: "a",
-        text: "Clubbing, karaoke, or a big group hang! More people = more fun 🎉",
+        text: "Clubbing, karaoke, or big group hang! The more the merrier 🎉✨",
         traits: { socialPreference: "extrovert" },
       },
       {
         id: "b",
-        text: "Small group dinner or cafe session, can also chill alone",
+        text: "Small group dinner or cafe hop ✨ can also vibe alone tho",
         traits: { socialPreference: "ambivert" },
       },
       {
         id: "c",
-        text: "Solo Netflix and snacks, please don't call me 📺",
+        text: "Solo Netflix and snacks era... do not disturb 📺🚫",
         traits: { socialPreference: "introvert" },
       },
       {
         id: "d",
-        text: "One-on-one deep conversations over good food",
+        text: "1-on-1 deep talks over good food only, that's the intimacy we need 💯",
         traits: { socialPreference: "introvert" },
       },
     ],
@@ -89,26 +89,26 @@ export const questions: QuizQuestion[] = [
   // Q3: Flavor Profile
   {
     id: 3,
-    question: "Pick your flavor profile:",
+    question: "Pick ur flavor profile:",
     answers: [
       {
         id: "a",
-        text: "Sweet and comforting - like kaya toast 🧡",
+        text: "Sweet stuff hits different 🧡 give me that comfort",
         traits: { flavorProfile: "sweet" },
       },
       {
         id: "b",
-        text: "Savoury and rich - give me that char kway teow",
+        text: "Savoryyyyyy... char kway teow supremacy 🍜🔥",
         traits: { flavorProfile: "savory" },
       },
       {
         id: "c",
-        text: "SPICY! I love the burn 🔥",
+        text: "SPICY OR DIE 🔥 the sweat is the reward",
         traits: { flavorProfile: "spicy" },
       },
       {
         id: "d",
-        text: "A bit of everything, balanced is best",
+        text: "Bit of everything honestly, balanced life goals ✨",
         traits: { flavorProfile: "balanced" },
       },
     ],
@@ -116,26 +116,26 @@ export const questions: QuizQuestion[] = [
   // Q4: Adventure Level
   {
     id: 4,
-    question: "When it comes to food, you are:",
+    question: "When it comes to food, ur that person who:",
     answers: [
       {
         id: "a",
-        text: "I'll try ANYTHING once. Fish head? Bring it 🐟",
+        text: "WILL TRY ANYTHING ONCE. Fish head? CKT with cockles? Let's gooo 🐟✨",
         traits: { adventureLevel: "adventurous" },
       },
       {
         id: "b",
-        text: "I'll try new things but stick to familiar favourites mostly",
+        text: "Try new cafes and viral foods but always return to my favorites tho",
         traits: { adventureLevel: "moderate" },
       },
       {
         id: "c",
-        text: "Why fix what ain't broken? Same order every time",
+        text: "Why fix what ain't broken? Same order every visit, no shame 🫡",
         traits: { adventureLevel: "traditional" },
       },
       {
         id: "d",
-        text: "I like exploring new cafes and food trends",
+        text: "Obsessed with finding hidden gem hawker stalls, content creator szn 📸",
         traits: { adventureLevel: "moderate" },
       },
     ],
@@ -143,26 +143,26 @@ export const questions: QuizQuestion[] = [
   // Q5: Time of Day
   {
     id: 5,
-    question: "What's your favourite time to eat?",
+    question: "Best time to eat (no wrong answers but there are better ones):",
     answers: [
       {
         id: "a",
-        text: "Morning! Breakfast is the best meal 🥚",
+        text: "MORNING PERSON ALERT! Breakfast is superior meal fr 🥚☀️",
         traits: { timeOfDay: "morning" },
       },
       {
         id: "b",
-        text: "Lunch time, need energy for the afternoon",
+        text: "Lunch o'clock! Need fuel for the afternoon grind 🍚",
         traits: { timeOfDay: "afternoon" },
       },
       {
         id: "c",
-        text: "Dinner is when I shine ✨",
+        text: "Dinner is MY meal ✨ I cook up at night",
         traits: { timeOfDay: "evening" },
       },
       {
         id: "d",
-        text: "3am makan session hits different",
+        text: "3am supper hits different, night owl checking in 🦉🌙",
         traits: { timeOfDay: "night" },
       },
     ],
@@ -170,26 +170,26 @@ export const questions: QuizQuestion[] = [
   // Q6: Setting
   {
     id: 6,
-    question: "Ideal food setting:",
+    question: "Ideal food setting vibes:",
     answers: [
       {
         id: "a",
-        text: "Hawker centre, plastic chair, best weather 🍜",
+        text: "Hawker centre, plastic chair, best weather, no cap 🍜💯",
         traits: { setting: "casual" },
       },
       {
         id: "b",
-        text: "Coffee shop, air-conditioned, comfortable",
+        text: "Nice cafe or air-con coffee shop, aesthetic needed ✨☕",
         traits: { setting: "moderate" },
       },
       {
         id: "c",
-        text: "Fancy restaurant with good ambiance",
+        text: "Fancy restaurant with the ambience, special occasion only 👗✨",
         traits: { setting: "elegant" },
       },
       {
         id: "d",
-        text: "Home-cooked meal, most authentic",
+        text: "HOME. Food at home is the most authentic honestly 🏠💕",
         traits: { setting: "casual" },
       },
     ],
@@ -197,26 +197,26 @@ export const questions: QuizQuestion[] = [
   // Q7: Texture Preference
   {
     id: 7,
-    question: "Texture matters! What do you prefer?",
+    question: "Texture be making or breaking the dish fr 👀 What's ur thing?",
     answers: [
       {
         id: "a",
-        text: "Soft and silky - like kway teow or bee hoon",
+        text: "Soft and silky... kway teow energy is unmatched 🍜✨",
         traits: { texturePreference: "soft" },
       },
       {
         id: "b",
-        text: "Chewy and springy - gives me satisfaction",
+        text: "Chewy and springy like prata... satisfying bite no cap 🥢💯",
         traits: { texturePreference: "chewy" },
       },
       {
         id: "c",
-        text: "Varied textures in one dish - keeps it interesting",
+        text: "Mixed textures hit different! Love when it go crazy 🎭🔥",
         traits: { texturePreference: "varied" },
       },
       {
         id: "d",
-        text: "Crunchy elements for that satisfying bite",
+        text: "CRUNCHY OR IT'S RANK. Need that satisfying snap 🫵😤",
         traits: { texturePreference: "crunchy" },
       },
     ],
@@ -224,53 +224,53 @@ export const questions: QuizQuestion[] = [
   // Q8: Cultural Authenticity
   {
     id: 8,
-    question: "Heritage and authenticity to you means:",
+    question: "Heritage and authenticity to u means:",
     answers: [
       {
         id: "a",
-        text: "Traditional recipes passed down for generations 👴👵",
+        text: "Traditional recipes passed down for gens... respect the elders 👴👵✨",
         traits: { culturalAuthenticity: "root-deep" },
       },
       {
         id: "b",
-        text: "Local street food culture - that's the real Singapore 🏙️",
+        text: "Local street food culture is THE culture, uncle and auntie shops forever 🏙️💯",
         traits: { culturalAuthenticity: "street-smart" },
       },
       {
         id: "c",
-        text: "Mixing cultures is what makes SG food unique!",
+        text: "Mixing cultures is what makes SG food iconic tho! Fusion gang rise up 🎉🌏",
         traits: { culturalAuthenticity: "modern-fusion" },
       },
       {
         id: "d",
-        text: "I appreciate both traditional and modern interpretations",
+        text: "Both traditional AND modern deserve love... balance is key ✨",
         traits: { culturalAuthenticity: "root-deep" },
       },
     ],
   },
-  // Q9: Bonus - Personality Trait
+  // Q9: Bonus - Friend Vibes
   {
     id: 9,
-    question: "How do your friends describe you?",
+    question: "How would ur friends describe u?",
     answers: [
       {
         id: "a",
-        text: "The life of the party, always making people laugh 😂",
+        text: "The life of the party, always serving laughs 😂✨",
         traits: { energyLevel: "high", socialPreference: "extrovert" },
       },
       {
         id: "b",
-        text: "The reliable one, always there for you 💯",
+        text: "The reliable one, always there for u thru everything 💯🫶",
         traits: { energyLevel: "medium", socialPreference: "ambivert" },
       },
       {
         id: "c",
-        text: "The chill one, go with the flow vibes 😌",
+        text: "The chill one, go with the flow vibes, low maintenance 😌✨",
         traits: { energyLevel: "low", socialPreference: "introvert" },
       },
       {
         id: "d",
-        text: "The ambitious one, always chasing goals 🚀",
+        text: "The ambitious one, always grinding and setting goals 🚀💪",
         traits: { energyLevel: "high", adventureLevel: "adventurous" },
       },
     ],
@@ -278,16 +278,16 @@ export const questions: QuizQuestion[] = [
   // Q10: Bonus - Food Philosophy
   {
     id: 10,
-    question: "Your food philosophy in one sentence:",
+    question: "Ur food philosophy in one sentence:",
     answers: [
       {
         id: "a",
-        text: "Life's too short, eat what makes you happy!",
+        text: "Life's too short, eat what makes u happy PERIODT 💅🍽️",
         traits: { adventureLevel: "adventurous", flavorProfile: "balanced" },
       },
       {
         id: "b",
-        text: "Good food brings people together 🤝",
+        text: "Good food brings people together, that's the truth 🤝💕",
         traits: {
           socialPreference: "extrovert",
           culturalAuthenticity: "root-deep",
@@ -295,12 +295,12 @@ export const questions: QuizQuestion[] = [
       },
       {
         id: "c",
-        text: "Comfort food > everything else 🍜",
+        text: "Comfort food > everything else, that's my therapy 🍜💖",
         traits: { energyLevel: "low", flavorProfile: "sweet" },
       },
       {
         id: "d",
-        text: "Explore every hawker centre before I die!",
+        text: "Gotta try every hawker centre before I die, bucket list szn 📝🏃",
         traits: {
           adventureLevel: "adventurous",
           culturalAuthenticity: "street-smart",
@@ -312,26 +312,26 @@ export const questions: QuizQuestion[] = [
   {
     id: 11,
     question:
-      "Texture Talk 💅 - When you think about the perfect dish, the texture should be:",
+      "Texture Talk 💅 - When u think about the PERFECT dish, the texture should:",
     answers: [
       {
         id: "a",
-        text: "Classic and traditional - soft, melt-in-your-mouth 🍚",
+        text: "Classic and traditional... soft, melt in ur mouth vibes 🍚✨",
         traits: { texturePreference: "soft", innovationLevel: "traditional" },
       },
       {
         id: "b",
-        text: "With some bite - chewy and satisfying like good noodles 🥢",
+        text: "Have some bite to it... chewy and satisfying like proper noodles 🥢💯",
         traits: { texturePreference: "chewy", innovationLevel: "moderate" },
       },
       {
         id: "c",
-        text: "Mixed bag! Love when textures pop - crispy, soft, chewy all in one 👀",
+        text: "Be a whole MIXED BAG! Love when textures go crazy 👀🎭🔥",
         traits: { texturePreference: "varied", innovationLevel: "innovative" },
       },
       {
         id: "d",
-        text: "EXTRA CRISPY. If it's not crunchy, is it even food? 🔥",
+        text: "EXTRA CRISPY ENERGY. If it ain't crunchy, is it even food tho? 🔥💀",
         traits: { texturePreference: "crunchy", innovationLevel: "moderate" },
       },
     ],
@@ -340,26 +340,26 @@ export const questions: QuizQuestion[] = [
   {
     id: 12,
     question:
-      "Food Remix or OG? 🔄 - Someone suggests adding truffle to your favorite hawker dish. You:",
+      "Food Remix or OG? 🔄 - Someone suggests adding truffle to ur fav hawker dish. U:",
     answers: [
       {
         id: "a",
-        text: "BETRAYAL! The OG recipe is perfect as is. Hands off our classics! 🙅",
+        text: "BETRAYAL!! The OG is perfect as is. Hands OFF our classics 🙅💢",
         traits: { innovationLevel: "traditional" },
       },
       {
         id: "b",
-        text: "I'll try it once, but honestly prefer the traditional version 🧐",
+        text: "Try it once for content but honestly? OG forever 🧐✨",
         traits: { innovationLevel: "moderate" },
       },
       {
         id: "c",
-        text: "YAAASSSS! Fusion is what makes SG food exciting! More experiments please! 🎉",
+        text: "YAAASSSS EXPERIMENT!! Fusion is what makes SG food exciting fr 🎉🚀",
         traits: { innovationLevel: "innovative" },
       },
       {
         id: "d",
-        text: "Depends on the dish... some deserve respect, others can handle a remix 🤔",
+        text: "Depends on the dish honestly... some deserve respect, others can handle remix 🤔🫷",
         traits: { innovationLevel: "moderate" },
       },
     ],
