@@ -11,6 +11,7 @@ export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [answers, setAnswers] = useState<Record<number, QuizAnswer>>({});
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   const question = questions.find((q) => q.id === currentQuestion);
   const progress = (currentQuestion / questions.length) * 100;
@@ -22,6 +23,9 @@ export default function QuizPage() {
   };
 
   const handleNext = (answerId?: string) => {
+    // Prevent multiple navigations during transition
+    if (isNavigating) return;
+    
     const selectedAnswerId = answerId || selectedAnswer;
     if (!question || !selectedAnswerId) return;
 
@@ -36,7 +40,7 @@ export default function QuizPage() {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       // Quiz complete - calculate result and navigate
-      // Store answers in localStorage for result page
+      setIsNavigating(true);
       localStorage.setItem("quizAnswers", JSON.stringify(newAnswers));
       router.push("/result");
     }

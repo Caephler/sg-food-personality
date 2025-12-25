@@ -27,6 +27,49 @@ export type CulturalAuthenticity =
   | "modern-fusion"
   | "street-smart";
 
+/**
+ * Meme-style content for Gen Z appeal
+ */
+export interface DishMemeContent {
+  tiktokCaption: string; // Like "no thoughts just [dish]"
+  vibeCheck: string; // e.g., "Main character energy"
+  memePotential: string; // e.g., "This hits different 🍵💀"
+  emojiCombo: string[]; // Array of emojis representing the vibe
+  internetSlang: string[]; // Relevant slang: "bussin", "slay", "goated", etc.
+}
+
+/**
+ * Modifier system - allows dishes to have variants based on trait thresholds
+ */
+export interface DishModifier {
+  id: string;
+  name: string; // e.g., "Crispy Kaya Toast"
+  description: string; // Short modifier description
+  triggerTrait: string; // Which trait triggers this modifier
+  triggerThreshold: number; // e.g., 80% on that trait
+  modifierTraits: Partial<{
+    energyLevel: EnergyLevel;
+    socialPreference: SocialPreference;
+    flavorProfile: FlavorProfile;
+    adventureLevel: AdventureLevel;
+    timeOfDay: TimeOfDay;
+    setting: Setting;
+    texturePreference: TexturePreference;
+    culturalAuthenticity: CulturalAuthenticity;
+  }>;
+  memeCaption: string; // Gen Z style caption
+  emojiCombo: string[]; // Override emojis for this modifier
+}
+
+/**
+ * Best paired with section - suggests complementary dishes
+ */
+export interface PairedWith {
+  dishId: string; // ID of paired dish
+  reason: string; // e.g., "The yin to your yang 🍜"
+  compatibilityScore: number; // 0-100
+}
+
 export interface Dish {
   id: string;
   name: string;
@@ -39,6 +82,10 @@ export interface Dish {
   };
   quote: string;
   category: string;
+  // Base version info
+  baseName?: string; // Original dish name for modifiers
+  baseMemeCaption?: string;
+  baseVibeCheck?: string;
   // Quiz-relevant attributes
   quizAttributes: {
     energyLevel: EnergyLevel;
@@ -50,6 +97,13 @@ export interface Dish {
     texturePreference: TexturePreference;
     culturalAuthenticity: CulturalAuthenticity;
   };
+  // Modifier system
+  hasModifiers?: boolean;
+  modifiers?: DishModifier[];
+  // Gen Z meme content
+  memeContent?: DishMemeContent;
+  // Pairing system
+  pairedWith?: PairedWith;
 }
 
 export const dishes: Dish[] = [
@@ -75,6 +129,9 @@ export const dishes: Dish[] = [
     quote:
       "Like that friend who's chill with everyone - no drama, always there for you.",
     category: "Hawker Classic",
+    baseName: "Hainanese Chicken Rice",
+    baseMemeCaption: "no thoughts just chicken rice at 3pm 🐔✨",
+    baseVibeCheck: "main character energy",
     quizAttributes: {
       energyLevel: "medium",
       socialPreference: "extrovert",
@@ -84,6 +141,42 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
+    },
+    hasModifiers: true,
+    modifiers: [
+      {
+        id: "premium-chicken-rice",
+        name: "Premium Zi Char Chicken Rice",
+        description: "The upgrade you didn't know you needed",
+        triggerTrait: "setting",
+        triggerThreshold: 50,
+        modifierTraits: { setting: "elegant" },
+        memeCaption: "POV: ur wallet after ordering premium chicken rice 💸🐔",
+        emojiCombo: ["💰", "👑", "🍗"],
+      },
+      {
+        id: "spicy-chicken-rice",
+        name: "Spicy Garlic Chicken Rice",
+        description: "For those who like it with extra heat",
+        triggerTrait: "flavorProfile",
+        triggerThreshold: 50,
+        modifierTraits: { flavorProfile: "spicy" },
+        memeCaption: "me after finding out they have spicy sauce 🔥💀",
+        emojiCombo: ["🌶️", "🔥", "😤"],
+      },
+    ],
+    memeContent: {
+      tiktokCaption: "no thoughts just chicken rice at 3pm 🐔✨",
+      vibeCheck: "main character energy fr fr",
+      memePotential: "this hits different but make it heritage 🍗💯",
+      emojiCombo: ["🐔", "🍚", "🇸🇬", "✨"],
+      internetSlang: ["bussin", "slay", "goated", "no cap"],
+    },
+    pairedWith: {
+      dishId: "kaya-toast",
+      reason:
+        "The ultimate breakfast combo - chicken rice for lunch, kaya toast for breakfast 🫡",
+      compatibilityScore: 85,
     },
   },
   {
@@ -108,6 +201,9 @@ export const dishes: Dish[] = [
     quote:
       "Dont talk to me until Ive had my char. Wait, actually, talk to me while I eat it.",
     category: "Street Food",
+    baseName: "Char Kway Teow",
+    baseMemeCaption: "wok hei is a lifestyle 🔥🍜",
+    baseVibeCheck: "cannot be tamed",
     quizAttributes: {
       energyLevel: "high",
       socialPreference: "extrovert",
@@ -117,6 +213,41 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "chewy",
       culturalAuthenticity: "street-smart",
+    },
+    hasModifiers: true,
+    modifiers: [
+      {
+        id: "extra-char-ckt",
+        name: "Extra Char Kway Teow",
+        description: "For the wok hei maximalist",
+        triggerTrait: "flavorProfile",
+        triggerThreshold: 50,
+        modifierTraits: { flavorProfile: "savory" },
+        memeCaption: "me asking for extra char: give me that carbon 🔥🍜",
+        emojiCombo: ["🔥", "🍜", "💀", "✨"],
+      },
+      {
+        id: "cockles-ckt",
+        name: "Cockles Loaded CKT",
+        description: "The sea food lover's dream",
+        triggerTrait: "adventureLevel",
+        triggerThreshold: 50,
+        modifierTraits: { adventureLevel: "adventurous" },
+        memeCaption: "cockles gang rise up 🦪🔝",
+        emojiCombo: ["🦪", "🌊", "🐚"],
+      },
+    ],
+    memeContent: {
+      tiktokCaption: "wok hei is a lifestyle 🔥🍜 #wokhei #char",
+      vibeCheck: "cannot be tamed, wont be subdued",
+      memePotential: "this literally set off the smoke detector 🚨💨",
+      emojiCombo: ["🔥", "🍜", "🥚", "🦐", "💨"],
+      internetSlang: ["wok hei", "bussin", "slay", "goated"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The classic late night combo - CKT + Teh = perfection 🧋🔥",
+      compatibilityScore: 90,
     },
   },
   {
@@ -151,6 +282,19 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "4am bkt thoughts be like 🧠✨",
+      vibeCheck: "old soul but make it nightlife",
+      memePotential: "bone marrow just hit different at 3am 🦴💀",
+      emojiCombo: ["🦴", "🍵", "🌙", "🧠"],
+      internetSlang: ["healing", "main character", "vibes"],
+    },
+    pairedWith: {
+      dishId: "yong-tau-foo",
+      reason:
+        "Light and herbal to balance the rich broth - perfect harmony 🍜🍵",
+      compatibilityScore: 75,
+    },
   },
   {
     id: "satay",
@@ -182,6 +326,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "chewy",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "satay uncle calling is my ringtone 🔥🍢",
+      vibeCheck: "the ultimate wingman",
+      memePotential: "peanut sauce on everything debate 🫙✨",
+      emojiCombo: ["🔥", "🍢", "🥜", "🥒", "🎉"],
+      internetSlang: ["bussin", "goated", "slay"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The cooling combo - satay's heat meets teh's sweetness 🍵🍢",
+      compatibilityScore: 88,
     },
   },
   {
@@ -215,6 +371,18 @@ export const dishes: Dish[] = [
       texturePreference: "varied",
       culturalAuthenticity: "street-smart",
     },
+    memeContent: {
+      tiktokCaption: "rojak brain rot be hitting different rn 🧠💀",
+      vibeCheck: "chaos goblin but elegant",
+      memePotential: "fermented shrimp paste perfume who else 😤🦐",
+      emojiCombo: ["🥗", "🦐", "🌶️", "🍍", "🎭"],
+      internetSlang: ["no thoughts", "brain dead", "slay", "iconic"],
+    },
+    pairedWith: {
+      dishId: "cendol",
+      reason: "Sweet meets chaotic - the yin to your yang 🍛🫠",
+      compatibilityScore: 80,
+    },
   },
   {
     id: "nasi-lemak",
@@ -247,6 +415,18 @@ export const dishes: Dish[] = [
       texturePreference: "varied",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "no thoughts just nasi lemak at 6am fr 🐔🇸🇬✨",
+      vibeCheck: "national treasure energy",
+      memePotential: "sambal made me do it 🔥💀",
+      emojiCombo: ["🥥", "🍗", "🌶️", "🇸🇬", "👑"],
+      internetSlang: ["bussin", "goated", "national treasure", "slay"],
+    },
+    pairedWith: {
+      dishId: "soft-boiled-eggs",
+      reason: "The champion's breakfast combo 🧋🏆",
+      compatibilityScore: 85,
+    },
   },
   {
     id: "laksa",
@@ -269,6 +449,9 @@ export const dishes: Dish[] = [
     },
     quote: "If you can handle me, we can be friends. 🦞",
     category: "Hawker Classic",
+    baseName: "Laksa",
+    baseMemeCaption: "no thoughts just laksa at 2am 🦞🔥",
+    baseVibeCheck: "can you handle the heat?",
     quizAttributes: {
       energyLevel: "high",
       socialPreference: "ambivert",
@@ -278,6 +461,41 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
+    },
+    hasModifiers: true,
+    modifiers: [
+      {
+        id: "extra-spicy-laksa",
+        name: "Atomic Laksa",
+        description: "For the spice veterans only",
+        triggerTrait: "flavorProfile",
+        triggerThreshold: 50,
+        modifierTraits: { flavorProfile: "spicy" },
+        memeCaption: "extra spicy = instant regret but no thoughts 🦞💀🔥",
+        emojiCombo: ["🔥", "🌶️", "💀", "🦞"],
+      },
+      {
+        id: "laksa-god",
+        name: "Laksa Supreme",
+        description: "Maximum toppings, maximum satisfaction",
+        triggerTrait: "adventureLevel",
+        triggerThreshold: 50,
+        modifierTraits: { adventureLevel: "adventurous" },
+        memeCaption: "laksa with everything = max bussin status 🦞✨💯",
+        emojiCombo: ["🦞", "🦐", "🦪", "✨", "💯"],
+      },
+    ],
+    memeContent: {
+      tiktokCaption: "no thoughts just laksa at 2am 🦞🔥 #spicy",
+      vibeCheck: "can you handle the heat? prove it",
+      memePotential: "tongue fully malfunction after first spoon 💀👅",
+      emojiCombo: ["🦞", "🥥", "🌶️", "🔥", "💀"],
+      internetSlang: ["bussin", "goated", "no cap", "slay", "rizz"],
+    },
+    pairedWith: {
+      dishId: "cendol",
+      reason: "Fire meets ice - cool down that laksa heat 🧊🔥",
+      compatibilityScore: 92,
     },
   },
   {
@@ -301,6 +519,9 @@ export const dishes: Dish[] = [
     },
     quote: "Who needs an alarm when you have kaya?",
     category: "Breakfast Classic",
+    baseName: "Kaya Toast",
+    baseMemeCaption: "no thoughts just kaya toast at 5am 🤝🫡",
+    baseVibeCheck: "early bird legend 🐦",
     quizAttributes: {
       energyLevel: "high",
       socialPreference: "ambivert",
@@ -310,6 +531,174 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
+    },
+    hasModifiers: true,
+    modifiers: [
+      {
+        id: "crispy-kaya",
+        name: "Crispy Kaya Toast",
+        description: "Extra crunch for the rebels",
+        triggerTrait: "texturePreference",
+        triggerThreshold: 50,
+        modifierTraits: { texturePreference: "crunchy" },
+        memeCaption: "crispy kaya toast gang rise up 🔥🥪",
+        emojiCombo: ["🔥", "🥪", "💪", "🦾"],
+      },
+      {
+        id: "double-kaya",
+        name: "Double Kaya Toast",
+        description: "The maximalist's choice",
+        triggerTrait: "sweetnessPreference",
+        triggerThreshold: 50,
+        modifierTraits: { flavorProfile: "sweet" },
+        memeCaption: "double kaya = double the bussin 🥪🥪✨",
+        emojiCombo: ["🥪", "🥪", "✨", "💯"],
+      },
+      {
+        id: "kopi-gao",
+        name: "Kopi Gao Kaya Set",
+        description: "The intense coffee enthusiast's breakfast",
+        triggerTrait: "energyLevel",
+        triggerThreshold: 50,
+        modifierTraits: { energyLevel: "high" },
+        memeCaption: "kopi gao level: can hear colors 🫖🎨",
+        emojiCombo: ["☕", "👂", "🌈", "🫡"],
+      },
+    ],
+    memeContent: {
+      tiktokCaption: "no thoughts just kaya toast at 5am 🤝🫡 #breakfast",
+      vibeCheck: "early bird legend 🐦✨",
+      memePotential: "brain fully mal Function after first bite 🍞💀",
+      emojiCombo: ["🥪", "🥚", "☕", "🇸🇬", "🫡"],
+      internetSlang: ["bussin", "goated", "no thoughts", "main character"],
+    },
+    pairedWith: {
+      dishId: "kopi",
+      reason:
+        "The classic kopi tiam combo - toast meets coffee, magic happens ☕🍞",
+      compatibilityScore: 95,
+    },
+  },
+  {
+    id: "kopi",
+    name: "Kopi",
+    chineseName: "咖啡",
+    description:
+      "Singapore's beloved coffee, roasted with sugar and margarine to perfection. Strong, sweet, and served with condensed milk. The heartbeat of every kopi tiam.",
+    personalityTraits: [
+      "Bold and authentic",
+      "No nonsense, just flavor",
+      "The original energy drink",
+      "Traditional and proud",
+      "The morning kickstart",
+    ],
+    visualStyle: {
+      colors: ["#4B3621", "#D2691E", "#F5F5DC"],
+      mood: "Traditional, strong, and comforting - the Singapore way",
+    },
+    quote: "Kopi siu dai, kosong, ga dai - you know the drill.",
+    category: "Beverage",
+    quizAttributes: {
+      energyLevel: "medium",
+      socialPreference: "ambivert",
+      flavorProfile: "sweet",
+      adventureLevel: "traditional",
+      timeOfDay: "morning",
+      setting: "casual",
+      texturePreference: "soft",
+      culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "kopi gang rise up ☕🇸🇬",
+      vibeCheck: "local legend energy",
+      memePotential: "the condensed milk hits different 🐄💯",
+      emojiCombo: ["☕", "🇸🇬", "💪", "✨"],
+      internetSlang: ["bussin", "goated", "no cap"],
+    },
+    pairedWith: {
+      dishId: "kaya-toast",
+      reason: "The dynamic duo - kopi and kaya toast for life ☕🥪",
+      compatibilityScore: 100,
+    },
+  },
+  {
+    id: "soft-boiled-eggs",
+    name: "Soft Boiled Eggs",
+    chineseName: "温泉蛋",
+    description:
+      "Perfectly soft-boiled eggs with a runny yolk, served with soy sauce and white pepper. The classic kopi tiam sidekick.",
+    personalityTraits: [
+      "Simple but essential",
+      "The reliable sidekick",
+      "Perfect with everything",
+    ],
+    visualStyle: {
+      colors: ["#FFD700", "#F5F5DC", "#8B4513"],
+      mood: "Simple, comforting, and classic",
+    },
+    quote: "Dip it, scoop it, love it.",
+    category: "Breakfast Side",
+    quizAttributes: {
+      energyLevel: "low",
+      socialPreference: "introvert",
+      flavorProfile: "savory",
+      adventureLevel: "traditional",
+      timeOfDay: "morning",
+      setting: "casual",
+      texturePreference: "soft",
+      culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "soft boiled egg supremacy 🥚✨",
+      vibeCheck: "clean eating energy",
+      memePotential: "the yolk porn is real 🍳💯",
+      emojiCombo: ["🥚", "✨", "💕", "😤"],
+      internetSlang: ["bussin", "slay"],
+    },
+    pairedWith: {
+      dishId: "kaya-toast",
+      reason: "The OG breakfast combo - toast and eggs for life 🥚🍞",
+      compatibilityScore: 95,
+    },
+  },
+  {
+    id: "cendol",
+    name: "Cendol",
+    chineseName: "煎蕊",
+    description:
+      "Shaved ice dessert with green worm-like jelly, coconut milk, palm sugar, and red beans. The ultimate Singaporean cool-down treat.",
+    personalityTraits: [
+      "Sweet and refreshing",
+      "The cool-down champion",
+      "Perfect balance of sweet",
+    ],
+    visualStyle: {
+      colors: ["#228B22", "#F5F5DC", "#8B4513", "#FF0000"],
+      mood: "Sweet, cool, and satisfying",
+    },
+    quote: "Brain freeze? Worth it.",
+    category: "Dessert",
+    quizAttributes: {
+      energyLevel: "low",
+      socialPreference: "ambivert",
+      flavorProfile: "sweet",
+      adventureLevel: "moderate",
+      timeOfDay: "afternoon",
+      setting: "casual",
+      texturePreference: "varied",
+      culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "cendol on a hot day be like 🧊❄️",
+      vibeCheck: "refreshing energy",
+      memePotential: "the palm sugar hits different 🌴💯",
+      emojiCombo: ["🧊", "🍚", "🌴", "✨"],
+      internetSlang: ["bussin", "slay", "no cap"],
+    },
+    pairedWith: {
+      dishId: "rojak",
+      reason: "Sweet meets chaotic - perfect balance 🍛🫠",
+      compatibilityScore: 80,
     },
   },
   {
@@ -343,6 +732,18 @@ export const dishes: Dish[] = [
       texturePreference: "chewy",
       culturalAuthenticity: "street-smart",
     },
+    memeContent: {
+      tiktokCaption: "prata flip fail compilation but make it 3am 🔄💀",
+      vibeCheck: "flipping master actually no",
+      memePotential: "curry dip or sugar debate continues 🫙🍬",
+      emojiCombo: ["🫓", "🥚", "🍛", "🌙", "🔥"],
+      internetSlang: ["bussin", "slay", "no cap", "vibes"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The perfect late night pairing - prata and teh, besties 🤝🫖",
+      compatibilityScore: 88,
+    },
   },
   {
     id: "fish-head-curry",
@@ -374,6 +775,18 @@ export const dishes: Dish[] = [
       setting: "moderate",
       texturePreference: "varied",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "fish head gang where u at 🐟👀 #courage",
+      vibeCheck: "fearless foodie energy",
+      memePotential: "the eyes are watching me eat 💀👁️",
+      emojiCombo: ["🐟", "🌶️", "🍛", "👁️", "💪"],
+      internetSlang: ["slay", "goated", "courage", "no cap"],
+    },
+    pairedWith: {
+      dishId: "bee-hoon-soup",
+      reason: "The essential base for that spicy gravy 🍚🌶️",
+      compatibilityScore: 90,
     },
   },
   {
@@ -407,6 +820,18 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "clean eating but make it singapore 🍜✨",
+      vibeCheck: "pure vibes only",
+      memePotential: "the broth healed my soul 🫶🍵",
+      emojiCombo: ["🍜", "💆", "✨", "🍃", "🫶"],
+      internetSlang: ["healing", "clean", "vibes", "main character"],
+    },
+    pairedWith: {
+      dishId: "you-tiao",
+      reason: "Dip it in - the classic comfort combo 🥣🥢",
+      compatibilityScore: 85,
+    },
   },
   {
     id: "yong-tau-foo",
@@ -438,6 +863,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "yong tau foo brain mode activated 🧠🎯",
+      vibeCheck: "strategic eater energy",
+      memePotential: "dry or soup? the eternal question 🫙🍜",
+      emojiCombo: ["🥢", "🫛", "🍖", "🎯", "🧠"],
+      internetSlang: ["main character", "no cap", "slay"],
+    },
+    pairedWith: {
+      dishId: "bee-hoon-soup",
+      reason: "Light and balanced - the perfect pair duo 🥢🍜",
+      compatibilityScore: 82,
     },
   },
   {
@@ -471,6 +908,18 @@ export const dishes: Dish[] = [
       texturePreference: "chewy",
       culturalAuthenticity: "street-smart",
     },
+    memeContent: {
+      tiktokCaption: "white vs black carrot cake debate continues 🧡⚫",
+      vibeCheck: "true singaporean energy",
+      memePotential: "the crispy edges hit different 🍳💯",
+      emojiCombo: ["🧡", "🍳", "🌅", "🥢", "🇸🇬"],
+      internetSlang: ["bussin", "goated", "no thoughts", "slay"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The classic morning pairing - light and satisfying 🫖🧡",
+      compatibilityScore: 80,
+    },
   },
   {
     id: "oyster-omelette",
@@ -502,6 +951,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "chewy",
       culturalAuthenticity: "street-smart",
+    },
+    memeContent: {
+      tiktokCaption: "oyster omelette defender squad rise 🦪🛡️",
+      vibeCheck: "will die on this hill energy",
+      memePotential: "the crispy edges vs soft center debate 💀🌊",
+      emojiCombo: ["🦪", "🥚", "🔥", "⚔️", "💯"],
+      internetSlang: ["slay", "no cap", "main character", "vibes"],
+    },
+    pairedWith: {
+      dishId: "bee-hoon-soup",
+      reason: "Balance the heaviness with something light 🦪🍜",
+      compatibilityScore: 75,
     },
   },
   {
@@ -535,6 +996,18 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "eating healthy but make it singapore 🍃✨",
+      vibeCheck: "refined palate energy",
+      memePotential: "the fresh cousin showing off 🫓💅",
+      emojiCombo: ["🫓", "🥬", "🍤", "✨", "💅"],
+      internetSlang: ["slay", "clean", "main character", "goated"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "Light and floral - the refined pairing 🌼🍃",
+      compatibilityScore: 85,
+    },
   },
   {
     id: "hokkien-prawn-mee",
@@ -566,6 +1039,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "chewy",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "prawn mee supremacy 🦐👑 #noodlelife",
+      vibeCheck: "broth is life fr",
+      memePotential: "the prawn stock hit different 🦐💯",
+      emojiCombo: ["🦐", "🍜", "🌊", "👑", "💯"],
+      internetSlang: ["bussin", "goated", "slay", "no cap"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "Tropical vibes - cut through the richness 🦐🍋",
+      compatibilityScore: 80,
     },
   },
   {
@@ -599,6 +1084,18 @@ export const dishes: Dish[] = [
       texturePreference: "chewy",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "chili crab gang where u at 🦀🔥 #celebration",
+      vibeCheck: "showstopper energy fr",
+      memePotential: "hands messy but heart full 🦀💋",
+      emojiCombo: ["🦀", "🌶️", "🍅", "🎉", "🙌"],
+      internetSlang: ["bussin", "goated", "slay", "no thoughts"],
+    },
+    pairedWith: {
+      dishId: "bee-hoon-soup",
+      reason: "The ultimate feast combo - double indulgence 🦀🍜",
+      compatibilityScore: 88,
+    },
   },
   {
     id: "duck-rice",
@@ -631,6 +1128,18 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "duck rice lunch upgrade 🦆✨ #classy",
+      vibeCheck: "quiet excellence energy",
+      memePotential: "the crispy skin hits different 🍗💯",
+      emojiCombo: ["🦆", "🍚", "👑", "✨", "💅"],
+      internetSlang: ["goated", "slay", "main character", "no cap"],
+    },
+    pairedWith: {
+      dishId: "tea",
+      reason: "Sophisticated pairing - duck meets herbs 🍜🍵",
+      compatibilityScore: 82,
+    },
   },
   {
     id: "pork-congee",
@@ -662,6 +1171,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "sick day congee appreciation post 🥣💕",
+      vibeCheck: "healing energy",
+      memePotential: "the ginger warms my soul 🫚❤️",
+      emojiCombo: ["🥣", "💕", "🫚", "🌅", "🫶"],
+      internetSlang: ["healing", "vibes", "main character", "no thoughts"],
+    },
+    pairedWith: {
+      dishId: "tea",
+      reason: "The ultimate sick day combo - soft meets crispy 🥣🥢",
+      compatibilityScore: 95,
     },
   },
   {
@@ -696,6 +1217,18 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "ipoh hor fun purity 🍜✨ #clean",
+      vibeCheck: "minimalist masterclass",
+      memePotential: "the bean sprouts elevate everything 🎋💯",
+      emojiCombo: ["🍜", "🎋", "🌿", "✨", "👑"],
+      internetSlang: ["slay", "goated", "clean", "main character"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "Light and refined - the sophisticated pairing 🫖🍜",
+      compatibilityScore: 85,
+    },
   },
   {
     id: "minced-meat-noodle",
@@ -727,6 +1260,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "chewy",
       culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "minced meat noodle productivity boost 💪🍜",
+      vibeCheck: "structured thinker energy",
+      memePotential: "dry vs soup war continues ⚔️🍜",
+      emojiCombo: ["🍜", "💪", "🎯", "🧠", "⚔️"],
+      internetSlang: ["no cap", "slay", "main character", "goated"],
+    },
+    pairedWith: {
+      dishId: "tea",
+      reason: "The balanced meal - noodles meet soup 🍜🥣",
+      compatibilityScore: 80,
     },
   },
   {
@@ -760,6 +1305,18 @@ export const dishes: Dish[] = [
       texturePreference: "chewy",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "wonton mee since 1950s 🥟👑 #legend",
+      vibeCheck: "OG energy never dies",
+      memePotential: "springy noodles hitting different 🥟💯",
+      emojiCombo: ["🥟", "🍜", "👑", "✨", "🏆"],
+      internetSlang: ["goated", "slay", "no cap", "bussin"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The classic combo - wantons meet teh 🥟🍵",
+      compatibilityScore: 90,
+    },
   },
   {
     id: "curry-rice",
@@ -791,6 +1348,18 @@ export const dishes: Dish[] = [
       setting: "casual",
       texturePreference: "soft",
       culturalAuthenticity: "street-smart",
+    },
+    memeContent: {
+      tiktokCaption: "curry rice drowning rice culture 🍛🌊",
+      vibeCheck: "comfort food champion",
+      memePotential: "all the curries on my rice yes 🌊🍛",
+      emojiCombo: ["🍛", "🍚", "🍗", "🌊", "💯"],
+      internetSlang: ["bussin", "slay", "vibes", "main character"],
+    },
+    pairedWith: {
+      dishId: "teh-tarik",
+      reason: "The hearty meal with a sweet finish 🍛🧋",
+      compatibilityScore: 78,
     },
   },
   {
@@ -824,6 +1393,59 @@ export const dishes: Dish[] = [
       texturePreference: "soft",
       culturalAuthenticity: "root-deep",
     },
+    memeContent: {
+      tiktokCaption: "chee cheong fun smooth operator 🎋✨",
+      vibeCheck: "understated excellence",
+      memePotential: "silky smooth texture doing things 🫓💫",
+      emojiCombo: ["🫓", "🎋", "✨", "💅", "👑"],
+      internetSlang: ["slay", "main character", "goated", "clean"],
+    },
+    pairedWith: {
+      dishId: "tea",
+      reason: "The classic dim sum pairing - smooth meets creamy 🫓🥛",
+      compatibilityScore: 88,
+    },
+  },
+  {
+    id: "tea",
+    name: "Teh Tarik",
+    chineseName: "拉茶",
+    description:
+      "Pulled tea with condensed milk, poured from height to create the perfect froth. The national drink that brings people together.",
+    personalityTraits: [
+      "The social lubricant",
+      "Community builder",
+      "Smooth and refreshing",
+      "The life of the gathering",
+    ],
+    visualStyle: {
+      colors: ["#D2691E", "#F5F5DC", "#8B4513"],
+      mood: "Social, refreshing, and satisfying",
+    },
+    quote: "Pull it high, pour it right.",
+    category: "Beverage",
+    quizAttributes: {
+      energyLevel: "medium",
+      socialPreference: "extrovert",
+      flavorProfile: "sweet",
+      adventureLevel: "traditional",
+      timeOfDay: "afternoon",
+      setting: "casual",
+      texturePreference: "soft",
+      culturalAuthenticity: "street-smart",
+    },
+    memeContent: {
+      tiktokCaption: "teh tarik pull be hypnotizing 🫖✨",
+      vibeCheck: "main character energy",
+      memePotential: "the froth is everything 🫖💯",
+      emojiCombo: ["🫖", "✨", "💪", "👑"],
+      internetSlang: ["bussin", "slay", "goated"],
+    },
+    pairedWith: {
+      dishId: "satay",
+      reason: "The OG combo - teh and satay for life 🍢🫖",
+      compatibilityScore: 95,
+    },
   },
 ];
 
@@ -831,7 +1453,7 @@ export const dishes: Dish[] = [
  * Quiz Scoring Guide
  *
  * Each dish has quizAttributes that map to personality dimensions.
- * For a 10-question quiz, you could assign 1-2 dishes per attribute:
+ * For a 12-question quiz, you could assign 1-2 dishes per attribute:
  *
  * Q1: Energy Level (High/Medium/Low)
  * Q2: Social Preference (Extrovert/Ambivert/Introvert)
@@ -843,6 +1465,14 @@ export const dishes: Dish[] = [
  * Q8: Cultural Authenticity (Root-deep/Modern-fusion/Street-smart)
  * Q9: Additional trait from personalityTraits array
  * Q10: Additional trait from personalityTraits array
+ * Q11: Texture Talk (Classic vs Experimental)
+ * Q12: Food Remix or OG? (Traditional vs Innovative)
  *
  * Scoring: Each answer maps to specific dishes. Most matching dishes = result!
+ *
+ * Modifier System:
+ * - Each dish can have 2-3 modifiers triggered by specific trait thresholds
+ * - Check if user's trait score exceeds triggerThreshold for a modifier
+ * - If multiple modifiers trigger, show the highest scoring one
+ * - Modifiers add personality quirks to the base dish result
  */
