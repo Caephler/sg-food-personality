@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { dishes, type Dish, type DishModifier, getBestPairing } from "@/data/dishes";
 import { type QuizAnswer, getActiveModifier } from "@/data/questions";
 
-export default function ResultPage() {
+function ResultContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [result, setResult] = useState<Dish | null>(null);
@@ -533,3 +533,13 @@ export default function ResultPage() {
     </main>
   );
 }
+
+function ResultPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-xl font-display text-gray-600">Loading...</div></div>}>
+      <ResultContent />
+    </Suspense>
+  );
+}
+
+export default ResultPage;

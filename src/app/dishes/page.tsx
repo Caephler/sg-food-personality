@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { dishes, type Dish } from "@/data/dishes/index";
 
-export default function DishesPage() {
+function DishesContent() {
   const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -257,3 +257,13 @@ export default function DishesPage() {
     </main>
   );
 }
+
+function DishesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-yellow-50"><div className="text-xl font-display text-gray-600">Loading dishes...</div></div>}>
+      <DishesContent />
+    </Suspense>
+  );
+}
+
+export default DishesPage;
