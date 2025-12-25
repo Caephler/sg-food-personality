@@ -589,11 +589,17 @@ export function getActiveModifier(
       continue;
     }
 
-    const traitValue = getMostCommon(traitScores[modifier.triggerTrait]);
-    const traitCount = traitScores[modifier.triggerTrait][traitValue];
+    // Check the specific trigger trait value, not the most common one
+    const triggerValue = Object.entries(modifier.modifierTraits).find(
+      ([trait]) => trait === modifier.triggerTrait
+    )?.[1];
+
+    if (!triggerValue) continue;
+
+    const traitCount = traitScores[modifier.triggerTrait][triggerValue] || 0;
     const traitQuestions = traitQuestionCount[modifier.triggerTrait] || 1;
 
-    // Calculate percentage based on trait-specific questions, not total answers
+    // Calculate percentage based on trait-specific questions
     const percentage =
       traitQuestions > 0 ? (traitCount / traitQuestions) * 100 : 0;
 
