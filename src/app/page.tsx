@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { questions } from "@/data/questions";
+import { dishes } from "../data/dishes";
 
 // Singaporean food emojis for rotation
 const FOOD_EMOJIS = ["🦀", "🥢", "🍜", "🍤", "🍚", "🥘", "🦐", "🍢", "🍛", "🥡"];
@@ -159,7 +160,7 @@ export default function HomePage() {
             {questionCount} questions
           </span>
           <span className="px-4 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-text text-gray-600 dark:text-gray-300 shadow-sm">
-            24 dishes
+            {dishes.length} dishes
           </span>
           <span className="px-4 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-text text-gray-600 dark:text-gray-300 shadow-sm">
             ~2 min
