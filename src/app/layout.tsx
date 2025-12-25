@@ -27,6 +27,9 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Local Singaporean Food Personality Quiz",
   description: "Discover which iconic Singaporean dish matches your personality!",
+  icons: {
+    icon: "🥢",
+  },
 };
 
 export default function RootLayout({

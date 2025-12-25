@@ -72,6 +72,7 @@ export interface PairedWith {
 
 export interface Dish {
   id: string;
+  emoji: string; // Unique standardized emoji for the dish
   name: string;
   chineseName: string;
   description: string;
@@ -102,13 +103,14 @@ export interface Dish {
   modifiers?: DishModifier[];
   // Gen Z meme content
   memeContent?: DishMemeContent;
-  // Pairing system
-  pairedWith?: PairedWith;
+  // Best paired with - fixed relationship (dish ID)
+  pairedWith?: string;
 }
 
 export const dishes: Dish[] = [
   {
     id: "hainanese-chicken-rice",
+    emoji: "🍗",
     name: "Hainanese Chicken Rice",
     chineseName: "海南鸡饭",
     description:
@@ -169,18 +171,14 @@ export const dishes: Dish[] = [
       tiktokCaption: "no thoughts just chicken rice at 3pm 🐔✨",
       vibeCheck: "main character energy fr fr",
       memePotential: "this hits different but make it heritage 🍗💯",
-      emojiCombo: ["🐔", "🍚", "🇸🇬", "✨"],
+      emojiCombo: ["🍗", "🍚", "🇸🇬", "✨"],
       internetSlang: ["bussin", "slay", "goated", "no cap"],
     },
-    pairedWith: {
-      dishId: "kaya-toast",
-      reason:
-        "The ultimate breakfast combo - chicken rice for lunch, kaya toast for breakfast 🫡",
-      compatibilityScore: 85,
-    },
+    pairedWith: "kaya-toast",
   },
   {
     id: "char-kway-teow",
+    emoji: "🥢",
     name: "Char Kway Teow",
     chineseName: "炒粿条",
     description:
@@ -241,17 +239,14 @@ export const dishes: Dish[] = [
       tiktokCaption: "wok hei is a lifestyle 🔥🍜 #wokhei #char",
       vibeCheck: "cannot be tamed, wont be subdued",
       memePotential: "this literally set off the smoke detector 🚨💨",
-      emojiCombo: ["🔥", "🍜", "🥚", "🦐", "💨"],
+      emojiCombo: ["🥢", "🍜", "🥚", "🦐", "💨"],
       internetSlang: ["wok hei", "bussin", "slay", "goated"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The classic late night combo - CKT + Teh = perfection 🧋🔥",
-      compatibilityScore: 90,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "bak-kut-teh",
+    emoji: "🍖",
     name: "Bak Kut Teh",
     chineseName: "肉骨茶",
     description:
@@ -289,15 +284,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦴", "🍵", "🌙", "🧠"],
       internetSlang: ["healing", "main character", "vibes"],
     },
-    pairedWith: {
-      dishId: "yong-tau-foo",
-      reason:
-        "Light and herbal to balance the rich broth - perfect harmony 🍜🍵",
-      compatibilityScore: 75,
-    },
+    pairedWith: "you-tiao",
   },
   {
     id: "satay",
+    emoji: "🥜",
     name: "Satay",
     chineseName: "沙嗲",
     description:
@@ -334,14 +325,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🔥", "🍢", "🥜", "🥒", "🎉"],
       internetSlang: ["bussin", "goated", "slay"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The cooling combo - satay's heat meets teh's sweetness 🍵🍢",
-      compatibilityScore: 88,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "rojak",
+    emoji: "🥗",
     name: "Rojak",
     chineseName: "罗惹",
     description:
@@ -378,14 +366,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥗", "🦐", "🌶️", "🍍", "🎭"],
       internetSlang: ["no thoughts", "brain dead", "slay", "iconic"],
     },
-    pairedWith: {
-      dishId: "cendol",
-      reason: "Sweet meets chaotic - the yin to your yang 🍛🫠",
-      compatibilityScore: 80,
-    },
+    pairedWith: "cendol",
   },
   {
     id: "nasi-lemak",
+    emoji: "🥥",
     name: "Nasi Lemak",
     chineseName: "椰浆饭",
     description:
@@ -422,14 +407,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥥", "🍗", "🌶️", "🇸🇬", "👑"],
       internetSlang: ["bussin", "goated", "national treasure", "slay"],
     },
-    pairedWith: {
-      dishId: "soft-boiled-eggs",
-      reason: "The champion's breakfast combo 🧋🏆",
-      compatibilityScore: 85,
-    },
+    pairedWith: "kaya-toast",
   },
   {
     id: "laksa",
+    emoji: "🌶️",
     name: "Laksa",
     chineseName: "叻沙",
     description:
@@ -489,17 +471,14 @@ export const dishes: Dish[] = [
       tiktokCaption: "no thoughts just laksa at 2am 🦞🔥 #spicy",
       vibeCheck: "can you handle the heat? prove it",
       memePotential: "tongue fully malfunction after first spoon 💀👅",
-      emojiCombo: ["🦞", "🥥", "🌶️", "🔥", "💀"],
+      emojiCombo: ["🌶️", "🥥", "🌶️", "🔥", "💀"],
       internetSlang: ["bussin", "goated", "no cap", "slay", "rizz"],
     },
-    pairedWith: {
-      dishId: "cendol",
-      reason: "Fire meets ice - cool down that laksa heat 🧊🔥",
-      compatibilityScore: 92,
-    },
+    pairedWith: "cendol",
   },
   {
     id: "kaya-toast",
+    emoji: "🥪",
     name: "Kaya Toast",
     chineseName: "咖椰吐司",
     description:
@@ -572,15 +551,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥪", "🥚", "☕", "🇸🇬", "🫡"],
       internetSlang: ["bussin", "goated", "no thoughts", "main character"],
     },
-    pairedWith: {
-      dishId: "kopi",
-      reason:
-        "The classic kopi tiam combo - toast meets coffee, magic happens ☕🍞",
-      compatibilityScore: 95,
-    },
+    pairedWith: "kopi",
   },
   {
     id: "kopi",
+    emoji: "☕",
     name: "Kopi",
     chineseName: "咖啡",
     description:
@@ -615,14 +590,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["☕", "🇸🇬", "💪", "✨"],
       internetSlang: ["bussin", "goated", "no cap"],
     },
-    pairedWith: {
-      dishId: "kaya-toast",
-      reason: "The dynamic duo - kopi and kaya toast for life ☕🥪",
-      compatibilityScore: 100,
-    },
+    pairedWith: "kaya-toast",
   },
   {
     id: "soft-boiled-eggs",
+    emoji: "🥚",
     name: "Soft Boiled Eggs",
     chineseName: "温泉蛋",
     description:
@@ -655,14 +627,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥚", "✨", "💕", "😤"],
       internetSlang: ["bussin", "slay"],
     },
-    pairedWith: {
-      dishId: "kaya-toast",
-      reason: "The OG breakfast combo - toast and eggs for life 🥚🍞",
-      compatibilityScore: 95,
-    },
+    pairedWith: "kaya-toast",
   },
   {
     id: "cendol",
+    emoji: "🍧",
     name: "Cendol",
     chineseName: "煎蕊",
     description:
@@ -695,14 +664,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🧊", "🍚", "🌴", "✨"],
       internetSlang: ["bussin", "slay", "no cap"],
     },
-    pairedWith: {
-      dishId: "rojak",
-      reason: "Sweet meets chaotic - perfect balance 🍛🫠",
-      compatibilityScore: 80,
-    },
+    pairedWith: "rojak",
   },
   {
     id: "carbonara-local-style",
+    emoji: "🥓",
     name: "Carbonara, Local Style",
     chineseName: "意式面（本地风味）",
     description:
@@ -739,59 +705,52 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍝", "🥓", "🇸🇬", "✨", "🎭"],
       internetSlang: ["bussin", "slay", "no cap", "goated"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason:
-        "The perfect pairing - Western comfort meets Eastern refreshment 🍝🫖",
-      compatibilityScore: 85,
-    },
+    pairedWith: "teh-tarik",
   },
   {
-    id: "chendol-nachos",
-    name: "Chendol Nachos",
-    chineseName: "煎蕊薯片",
+    id: "muar-otak-otak",
+    emoji: "🥘",
+    name: "Muar Otak-Otak",
+    chineseName: "麻坡乌达",
     description:
-      "Crispy tortilla chips topped with chendol components - green jelly, palm sugar drizzle, coconut cream, and red beans. The dessert remix thats taking cafes by storm.",
+      "Grilled fish cake filled with spicy coconut curry paste, wrapped in banana leaves. A beloved heritage snack from Muar that's popular at Singapore's hawker centers.",
     personalityTraits: [
-      "Trendsetter",
-      "Sweet tooth with creative flair",
-      "Social media star",
-      "Dessert innovator",
-      "The influencer of food",
-      "Modern dessert artist",
-      "The friend who creates Instagram-worthy moments",
+      "Heritage keeper",
+      "Smoky and bold",
+      "Community favorite",
+      "Traditional with a kick",
+      "The local legend",
+      "Banana leaf enthusiast",
+      "The friend who brings authentic vibes",
     ],
     visualStyle: {
-      colors: ["#228B22", "#F5F5DC", "#8B4513", "#FF0000", "#FFD700"],
-      mood: "Playful, photogenic, and dangerously delicious",
+      colors: ["#228B22", "#FFD700", "#FF6347", "#8B4513"],
+      mood: "Smoky, aromatic, and deeply nostalgic - heritage in every bite",
     },
-    quote: "Dessert just got a glow-up. 🍧📸",
-    category: "Modern Fusion",
+    quote: "Banana leaf is not just wrapping, its tradition. 🌿🔥",
+    category: "Street Food",
     quizAttributes: {
       energyLevel: "medium",
-      socialPreference: "extrovert",
-      flavorProfile: "sweet",
-      adventureLevel: "adventurous",
+      socialPreference: "ambivert",
+      flavorProfile: "spicy",
+      adventureLevel: "moderate",
       timeOfDay: "afternoon",
-      setting: "moderate",
-      texturePreference: "varied",
-      culturalAuthenticity: "modern-fusion",
+      setting: "casual",
+      texturePreference: "soft",
+      culturalAuthenticity: "root-deep",
     },
     memeContent: {
-      tiktokCaption: "chendol nachos be looking like art 🧊🎨",
-      vibeCheck: "aesthetic queen energy",
-      memePotential: "the palm sugar drizzle hits different 🌴💅",
-      emojiCombo: ["🧊", "🍘", "🌴", "✨", "📸"],
-      internetSlang: ["slay", "aesthetic", "main character", "bussin"],
+      tiktokCaption: "otak otak on banana leaf is calling my name 🌿🔥",
+      vibeCheck: "heritage vibes only",
+      memePotential: "the smoky banana leaf hits different 🍃💯",
+      emojiCombo: ["🥘", "🌿", "🔥", "🐟", "👑"],
+      internetSlang: ["bussin", "goated", "heritage", "slay"],
     },
-    pairedWith: {
-      dishId: "kopi",
-      reason: "The modern dessert pairing - sweet meets strong ☕🍧",
-      compatibilityScore: 88,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "egg-prata",
+    emoji: "🫓",
     name: "Egg Prata",
     chineseName: "鸡蛋煎饼",
     description:
@@ -828,14 +787,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🥚", "🍛", "🌙", "🔥"],
       internetSlang: ["bussin", "slay", "no cap", "vibes"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The perfect late night pairing - prata and teh, besties 🤝🫖",
-      compatibilityScore: 88,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "fish-head-curry",
+    emoji: "🐟",
     name: "Fish Head Curry",
     chineseName: "鱼头咖喱",
     description:
@@ -872,14 +828,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🐟", "🌶️", "🍛", "👁️", "💪"],
       internetSlang: ["slay", "goated", "courage", "no cap"],
     },
-    pairedWith: {
-      dishId: "bee-hoon-soup",
-      reason: "The essential base for that spicy gravy 🍚🌶️",
-      compatibilityScore: 90,
-    },
+    pairedWith: "bee-hoon-soup",
   },
   {
     id: "bee-hoon-soup",
+    emoji: "🍲",
     name: "Bee Hoon Soup",
     chineseName: "米粉汤",
     description:
@@ -897,7 +850,7 @@ export const dishes: Dish[] = [
       colors: ["#F5F5DC", "#8B4513", "#228B22", "#FFEFD5"],
       mood: "Calm, pure, and nurturing - a warm embrace in bowl form",
     },
-    quote: "Simple si gin, but never boring.",
+    quote: "Simple si gin na, but never boring.",
     category: "Hawker Classic",
     quizAttributes: {
       energyLevel: "low",
@@ -916,14 +869,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "💆", "✨", "🍃", "🫶"],
       internetSlang: ["healing", "clean", "vibes", "main character"],
     },
-    pairedWith: {
-      dishId: "you-tiao",
-      reason: "Dip it in - the classic comfort combo 🥣🥢",
-      compatibilityScore: 85,
-    },
+    pairedWith: "you-tiao",
   },
   {
     id: "yong-tau-foo",
+    emoji: "🧆",
     name: "Yong Tau Foo",
     chineseName: "酿豆腐",
     description:
@@ -960,14 +910,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥢", "🫛", "🍖", "🎯", "🧠"],
       internetSlang: ["main character", "no cap", "slay"],
     },
-    pairedWith: {
-      dishId: "bee-hoon-soup",
-      reason: "Light and balanced - the perfect pair duo 🥢🍜",
-      compatibilityScore: 82,
-    },
+    pairedWith: "bee-hoon-soup",
   },
   {
     id: "fried-carrot-cake",
+    emoji: "🍳",
     name: "Fried Carrot Cake",
     chineseName: "炒萝卜糕",
     description:
@@ -1004,14 +951,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🧡", "🍳", "🌅", "🥢", "🇸🇬"],
       internetSlang: ["bussin", "goated", "no thoughts", "slay"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The classic morning pairing - light and satisfying 🫖🧡",
-      compatibilityScore: 80,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "oyster-omelette",
+    emoji: "🦪",
     name: "Oyster Omelette",
     chineseName: "蚝煎",
     description:
@@ -1048,14 +992,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦪", "🥚", "🔥", "⚔️", "💯"],
       internetSlang: ["slay", "no cap", "main character", "vibes"],
     },
-    pairedWith: {
-      dishId: "bee-hoon-soup",
-      reason: "Balance the heaviness with something light 🦪🍜",
-      compatibilityScore: 75,
-    },
+    pairedWith: "bee-hoon-soup",
   },
   {
     id: "popiah",
+    emoji: "🌯",
     name: "Popiah",
     chineseName: "薄饼",
     description:
@@ -1092,14 +1033,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🥬", "🍤", "✨", "💅"],
       internetSlang: ["slay", "clean", "main character", "goated"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "Light and floral - the refined pairing 🌼🍃",
-      compatibilityScore: 85,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "hokkien-prawn-mee",
+    emoji: "🍤",
     name: "Hokkien Prawn Mee",
     chineseName: "福建虾面",
     description:
@@ -1136,14 +1074,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦐", "🍜", "🌊", "👑", "💯"],
       internetSlang: ["bussin", "goated", "slay", "no cap"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "Tropical vibes - cut through the richness 🦐🍋",
-      compatibilityScore: 80,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "singapore-crab",
+    emoji: "🦀",
     name: "Singapore Chili Crab",
     chineseName: "新加坡辣椒蟹",
     description:
@@ -1180,14 +1115,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦀", "🌶️", "🍅", "🎉", "🙌"],
       internetSlang: ["bussin", "goated", "slay", "no thoughts"],
     },
-    pairedWith: {
-      dishId: "bee-hoon-soup",
-      reason: "The ultimate feast combo - double indulgence 🦀🍜",
-      compatibilityScore: 88,
-    },
+    pairedWith: "bee-hoon-soup",
   },
   {
     id: "duck-rice",
+    emoji: "🦆",
     name: "Duck Rice",
     chineseName: "鸭饭",
     description:
@@ -1224,14 +1156,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🦆", "🍚", "👑", "✨", "💅"],
       internetSlang: ["goated", "slay", "main character", "no cap"],
     },
-    pairedWith: {
-      dishId: "tea",
-      reason: "Sophisticated pairing - duck meets herbs 🍜🍵",
-      compatibilityScore: 82,
-    },
+    pairedWith: "tea",
   },
   {
     id: "pork-congee",
+    emoji: "🥣",
     name: "Pork Congee",
     chineseName: "猪肉粥",
     description:
@@ -1268,14 +1197,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥣", "💕", "🫚", "🌅", "🫶"],
       internetSlang: ["healing", "vibes", "main character", "no thoughts"],
     },
-    pairedWith: {
-      dishId: "tea",
-      reason: "The ultimate sick day combo - soft meets crispy 🥣🥢",
-      compatibilityScore: 95,
-    },
+    pairedWith: "tea",
   },
   {
     id: "sambal-pasta",
+    emoji: "🍝",
     name: "Sambal Pasta",
     chineseName: "参巴意面",
     description:
@@ -1309,17 +1235,14 @@ export const dishes: Dish[] = [
       tiktokCaption: "sambal pasta morning gang rise up 🌶️🍝☀️",
       vibeCheck: "spice god energy",
       memePotential: "the sambal wakes up everything 🔥💯",
-      emojiCombo: ["🌶️", "🍝", "☀️", "🔥", "👑"],
+      emojiCombo: ["🍝", "☀️", "🔥", "👑"],
       internetSlang: ["bussin", "goated", "no cap", "slay"],
     },
-    pairedWith: {
-      dishId: "kaya-toast",
-      reason: "The spicy-sweet contrast - start strong, end sweet 🌶️🥪",
-      compatibilityScore: 82,
-    },
+    pairedWith: "kaya-toast",
   },
   {
     id: "taugeh-ipoh-hor-fun",
+    emoji: "🍜",
     name: "Taugeh & Ipoh Hor Fun",
     chineseName: "芽菇伊面河",
     description:
@@ -1357,14 +1280,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "🎋", "🌿", "✨", "👑"],
       internetSlang: ["slay", "goated", "clean", "main character"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "Light and refined - the sophisticated pairing 🫖🍜",
-      compatibilityScore: 85,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "minced-meat-noodle",
+    emoji: "🥢",
     name: "Minced Meat Noodle",
     chineseName: "肉脞面",
     description:
@@ -1401,14 +1321,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍜", "💪", "🎯", "🧠", "⚔️"],
       internetSlang: ["no cap", "slay", "main character", "goated"],
     },
-    pairedWith: {
-      dishId: "tea",
-      reason: "The balanced meal - noodles meet soup 🍜🥣",
-      compatibilityScore: 80,
-    },
+    pairedWith: "tea",
   },
   {
     id: "wanton-mee",
+    emoji: "🥟",
     name: "Wanton Mee",
     chineseName: "云吞面",
     description:
@@ -1445,14 +1362,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🥟", "🍜", "👑", "✨", "🏆"],
       internetSlang: ["goated", "slay", "no cap", "bussin"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The classic combo - wantons meet teh 🥟🍵",
-      compatibilityScore: 90,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "curry-rice",
+    emoji: "🍛",
     name: "Curry Rice",
     chineseName: "咖喱饭",
     description:
@@ -1489,14 +1403,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🍛", "🍚", "🍗", "🌊", "💯"],
       internetSlang: ["bussin", "slay", "vibes", "main character"],
     },
-    pairedWith: {
-      dishId: "teh-tarik",
-      reason: "The hearty meal with a sweet finish 🍛🧋",
-      compatibilityScore: 78,
-    },
+    pairedWith: "teh-tarik",
   },
   {
     id: "chee-cheong-fun",
+    emoji: "🫔",
     name: "Chee Cheong Fun",
     chineseName: "猪肠粉",
     description:
@@ -1533,14 +1444,11 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫓", "🎋", "✨", "💅", "👑"],
       internetSlang: ["slay", "main character", "goated", "clean"],
     },
-    pairedWith: {
-      dishId: "tea",
-      reason: "The classic dim sum pairing - smooth meets creamy 🫓🥛",
-      compatibilityScore: 88,
-    },
+    pairedWith: "tea",
   },
   {
     id: "tea",
+    emoji: "🍵",
     name: "Teh Tarik",
     chineseName: "拉茶",
     description:
@@ -1574,11 +1482,46 @@ export const dishes: Dish[] = [
       emojiCombo: ["🫖", "✨", "💪", "👑"],
       internetSlang: ["bussin", "slay", "goated"],
     },
-    pairedWith: {
-      dishId: "satay",
-      reason: "The OG combo - teh and satay for life 🍢🫖",
-      compatibilityScore: 95,
+    pairedWith: "satay",
+  },
+  {
+    id: "you-tiao",
+    emoji: "🥢",
+    name: "You Tiao",
+    chineseName: "油条",
+    description:
+      "Golden, crispy fried dough sticks. The perfect accompaniment to congee or kopi tiam breakfasts. Crunchy outside, airy inside - simple perfection.",
+    personalityTraits: [
+      "The perfect sidekick",
+      "Crunchy and satisfying",
+      "Classic breakfast essential",
+      "Dip-worthy",
+      "The supporting star",
+    ],
+    visualStyle: {
+      colors: ["#F5DEB3", "#D2691E", "#FFD700"],
+      mood: "Crispy, golden, and comforting - breakfast bliss",
     },
+    quote: "Dip me, I belong to congee and kopi! 🥢",
+    category: "Breakfast Side",
+    quizAttributes: {
+      energyLevel: "medium",
+      socialPreference: "introvert",
+      flavorProfile: "savory",
+      adventureLevel: "traditional",
+      timeOfDay: "morning",
+      setting: "casual",
+      texturePreference: "crunchy",
+      culturalAuthenticity: "root-deep",
+    },
+    memeContent: {
+      tiktokCaption: "you tiao dip congee be hitting different 🥢🥣",
+      vibeCheck: "supporting actor energy",
+      memePotential: "the crunch is everything 💯🔥",
+      emojiCombo: ["🥢", "🔥", "💯", "🌅"],
+      internetSlang: ["bussin", "goated", "slay"],
+    },
+    pairedWith: "pork-congee",
   },
 ];
 

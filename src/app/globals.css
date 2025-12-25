@@ -25,6 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
   font-family: var(--font-lato), system-ui, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent scroll bounce on mobile for quiz page */
+.quiz-page {
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
 }
 
 @layer utilities {

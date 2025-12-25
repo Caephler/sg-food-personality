@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { dishes, type Dish, type DishModifier } from "@/data/dishes";
-import { questions, type QuizAnswer, getActiveModifier, getPairedDish } from "@/data/questions";
+import { type QuizAnswer, getActiveModifier } from "@/data/questions";
 
 export default function ResultPage() {
   const router = useRouter();
@@ -25,9 +25,9 @@ export default function ResultPage() {
       if (dish) {
         setResult(dish);
         setActiveModifier(null);
-        if (dish.pairedWith?.dishId) {
-          const paired = getPairedDish(dish.pairedWith.dishId);
-          setPairedDish(paired);
+        if (dish.pairedWith) {
+          const paired = dishes.find((d) => d.id === dish.pairedWith);
+          setPairedDish(paired || null);
         }
         setLoading(false);
         return;
@@ -53,9 +53,9 @@ export default function ResultPage() {
       setActiveModifier(modifier);
       
       // Get paired dish
-      if (calculatedResult.pairedWith?.dishId) {
-        const paired = getPairedDish(calculatedResult.pairedWith.dishId);
-        setPairedDish(paired);
+      if (calculatedResult.pairedWith) {
+        const paired = dishes.find((d) => d.id === calculatedResult.pairedWith);
+        setPairedDish(paired || null);
       }
       
       setResult(calculatedResult);
@@ -449,10 +449,11 @@ export default function ResultPage() {
                 transition={{ delay: 0.65 }}
               >
                 <h3 className="text-sm font-semibold text-gray-500 mb-3 text-center uppercase tracking-wide">
-                  Best Paired With...
+                  Best Paired With... ✨
                 </h3>
-                <div 
-                  className="p-4 rounded-xl text-center relative overflow-hidden"
+                <Link
+                  href={`/result?dish=${pairedDish.id}`}
+                  className="block p-4 rounded-xl text-center relative overflow-hidden group cursor-pointer hover:bg-white/40 transition-colors"
                   style={{
                     background: `linear-gradient(135deg, ${pairedDish.visualStyle.colors[0]}30, ${pairedDish.visualStyle.colors[1]}30)`,
                   }}
@@ -465,25 +466,16 @@ export default function ResultPage() {
                        pairedDish.category.includes("Restaurant") ? "🦀" : "🍽️"}
                     </div>
                     <div className="text-left">
-                      <p className="font-semibold text-gray-900">{pairedDish.name}</p>
-                      <p className="text-sm text-gray-600">{result.pairedWith.reason}</p>
+                      <p className="font-semibold text-gray-900 group-hover:text-orange-700 transition-colors underline decoration-orange-400 decoration-2 underline-offset-2">
+                        {pairedDish.name}
+                      </p>
+                      <p className="text-sm text-gray-600">Click to explore this dish →</p>
                     </div>
                   </div>
-                  <div className="mt-2 flex justify-center gap-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span
-                        key={star}
-                        className={`text-sm ${
-                          star <= Math.round((result.pairedWith?.compatibilityScore || 0) / 20) 
-                            ? "text-yellow-500" 
-                            : "text-gray-300"
-                        }`}
-                      >
-                        ★
-                      </span>
-                    ))}
+                  <div className="mt-2 text-xs text-orange-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    Click to view result →
                   </div>
-                </div>
+                </Link>
               </motion.div>
             )}
 

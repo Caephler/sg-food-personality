@@ -55,7 +55,7 @@ export default function QuizPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-4">
+    <main className="min-h-screen min-h-screen-dvh bg-gradient-to-br from-red-50 via-white to-red-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-4 overflow-hidden">
       <div className="max-w-md mx-auto">
         {/* Progress Bar */}
         <ProgressBar current={currentQuestion} total={questions.length} progress={progress} />
