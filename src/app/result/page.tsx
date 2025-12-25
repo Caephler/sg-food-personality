@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { dishes, type Dish, type DishModifier } from "@/data/dishes";
@@ -9,13 +9,32 @@ import { questions, type QuizAnswer, getActiveModifier, getPairedDish } from "@/
 
 export default function ResultPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [result, setResult] = useState<Dish | null>(null);
   const [activeModifier, setActiveModifier] = useState<DishModifier | null>(null);
   const [pairedDish, setPairedDish] = useState<Dish | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get answers from localStorage
+    // Check if there's a dish parameter in the URL (from catalog page)
+    const dishParam = searchParams.get("dish");
+    
+    if (dishParam) {
+      // Show the specific dish from the catalog
+      const dish = dishes.find((d) => d.id === dishParam);
+      if (dish) {
+        setResult(dish);
+        setActiveModifier(null);
+        if (dish.pairedWith?.dishId) {
+          const paired = getPairedDish(dish.pairedWith.dishId);
+          setPairedDish(paired);
+        }
+        setLoading(false);
+        return;
+      }
+    }
+    
+    // Otherwise, calculate result from quiz answers
     const storedAnswers = localStorage.getItem("quizAnswers");
     
     if (!storedAnswers) {
@@ -46,7 +65,7 @@ export default function ResultPage() {
     } finally {
       setLoading(false);
     }
-  }, [router]);
+  }, [router, searchParams]);
 
   const handleRetakeQuiz = () => {
     localStorage.removeItem("quizAnswers");
@@ -211,6 +230,9 @@ export default function ResultPage() {
      result.category.includes("Restaurant") ? "🦀" : "🍽️");
   const displayEmojis = activeModifier?.emojiCombo || result.memeContent?.emojiCombo || [];
 
+  // Check if we're viewing from catalog
+  const isFromCatalog = searchParams.get("dish") !== null;
+
   return (
     <main 
       className="min-h-screen p-4 relative overflow-hidden"
@@ -232,7 +254,9 @@ export default function ResultPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <p className="font-text text-gray-700/80 mb-2 font-medium">Your Singaporean Food Personality Is...</p>
+          <p className="font-text text-gray-700/80 mb-2 font-medium">
+            {isFromCatalog ? "Dish Personality" : "Your Singaporean Food Personality Is..."}
+          </p>
           <motion.h1
             className="text-4xl md:text-5xl font-display font-bold text-gray-900 drop-shadow-sm"
             initial={{ scale: 0.8 }}
@@ -377,7 +401,7 @@ export default function ResultPage() {
             {/* Personality Traits */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                Your Personality Traits:
+                {isFromCatalog ? "Personality Traits" : "Your Personality Traits"}:
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
                 {result.personalityTraits.map((trait, index) => (
@@ -466,7 +490,7 @@ export default function ResultPage() {
             {/* Visual Style */}
             <div className="border-t pt-6">
               <h3 className="text-sm font-semibold text-gray-500 mb-3 text-center uppercase tracking-wide">
-                Your Vibe
+                {isFromCatalog ? "The Vibe" : "Your Vibe"}
               </h3>
               <div
                 className="p-4 rounded-xl text-center"
@@ -487,18 +511,29 @@ export default function ResultPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          <button
-            onClick={handleRetakeQuiz}
-            className="text-gray-700 hover:text-gray-900 font-medium transition-colors px-6 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md"
-          >
-            Take the quiz again →
-          </button>
-          <Link
-            href="/dishes"
-            className="text-orange-700 hover:text-orange-900 font-medium transition-colors px-6 py-2 bg-orange-100/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md text-center"
-          >
-            View All Dishes 📋
-          </Link>
+          {isFromCatalog ? (
+            <Link
+              href="/dishes"
+              className="text-orange-700 hover:text-orange-900 font-medium transition-colors px-6 py-2 bg-orange-100/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md text-center"
+            >
+              ← Back to All Dishes
+            </Link>
+          ) : (
+            <>
+              <button
+                onClick={handleRetakeQuiz}
+                className="text-gray-700 hover:text-gray-900 font-medium transition-colors px-6 py-2 bg-white/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md"
+              >
+                Take the quiz again →
+              </button>
+              <Link
+                href="/dishes"
+                className="text-orange-700 hover:text-orange-900 font-medium transition-colors px-6 py-2 bg-orange-100/60 backdrop-blur-sm rounded-full shadow-sm hover:shadow-md text-center"
+              >
+                View All Dishes 📋
+              </Link>
+            </>
+          )}
         </motion.div>
 
         {/* Footer */}
