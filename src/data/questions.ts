@@ -136,7 +136,7 @@ export const questions: QuizQuestion[] = [
       {
         id: "d",
         text: "Obsessed with finding hidden gem hawker stalls, content creator szn 📸",
-        traits: { adventureLevel: "moderate" },
+        traits: { adventureLevel: "adventurous" },
       },
     ],
   },
@@ -244,7 +244,7 @@ export const questions: QuizQuestion[] = [
       {
         id: "d",
         text: "Both traditional AND modern deserve love... balance is key ✨",
-        traits: { culturalAuthenticity: "root-deep" },
+        traits: { culturalAuthenticity: "modern-fusion" },
       },
     ],
   },
@@ -323,7 +323,7 @@ export const questions: QuizQuestion[] = [
       {
         id: "b",
         text: "Try it once for content but honestly? OG forever 🧐✨",
-        traits: { innovationLevel: "moderate" },
+        traits: { innovationLevel: "traditional" },
       },
       {
         id: "c",
