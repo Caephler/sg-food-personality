@@ -9,19 +9,18 @@ export const muarOtakOtak: DishBase = {
   description:
     "Grilled fish cake filled with spicy coconut curry paste, wrapped in banana leaves. A beloved heritage snack from Muar that's popular at Singapore's hawker centers.",
   personalityTraits: [
-    "Heritage keeper",
-    "Smoky and bold",
-    "Community favorite",
-    "Traditional with a kick",
-    "The local legend",
-    "Banana leaf enthusiast",
-    "The friend who brings authentic vibes",
+    "Wrapped in banana leaf (the only way)",
+    "Grilled over charcoal, not negotiable",
+    "Muar heritage, Singapore adopted",
+    "Fish paste and spice paste perfection",
+    "That char from the grill is everything",
+    "Unwrap carefully or lose the filling",
   ],
   visualStyle: {
     colors: ["#228B22", "#FFD700", "#FF6347", "#8B4513"],
     mood: "Smoky, aromatic, and deeply nostalgic - heritage in every bite",
   },
-  quote: "Banana leaf is not just wrapping, its tradition. 🌿🔥",
+  quote: "If it's not grilled in banana leaf, is it even otak?",
   category: "Street Food",
   quizAttributes: {
     energyLevel: "medium",
@@ -34,11 +33,11 @@ export const muarOtakOtak: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "otak otak on banana leaf is calling my name 🌿🔥",
-    vibeCheck: "heritage vibes only",
-    memePotential: "the smoky banana leaf hits different 🍃💯",
-    emojiCombo: ["🥘", "🌿", "🔥", "🐟", "👑"],
-    internetSlang: ["bussin", "goated", "heritage", "slay"],
+    tiktokCaption: "banana leaf charcoal-grilled supremacy",
+    vibeCheck: "Muar recipe, Singapore love",
+    memePotential: "unwrapping the leaf carefully (failed)",
+    emojiCombo: ["🥘", "🌿", "🔥", "🐟"],
+    internetSlang: ["heritage", "traditional", "grilled"],
   },
 };
 
@@ -50,19 +49,18 @@ export const eggPrata: DishBase = {
   description:
     "Flaky, crispy, buttery flatbread folded with egg, served with curry. The midnight snack that understands your struggles, the breakfast that forgives your sins.",
   personalityTraits: [
-    "Versatile and accommodating",
-    "Late night bestie",
-    "Crispy on the outside, soft inside",
-    "Patient (takes skill to flip right)",
-    "The comfort after midnight",
-    "Adapts to any time",
-    "The flexible friend whos always there",
+    "Available 24/7 (the real MVP)",
+    "Crispy, flaky layers are an art form",
+    "Curry dip mandatory, sugar is also valid",
+    "Watching the uncle flip it is hypnotic",
+    "Post-club food, pre-work food, anytime food",
+    "Cheese prata exists but we don't talk about it",
   ],
   visualStyle: {
     colors: ["#F5DEB3", "#FFD700", "#8B4513", "#D2691E"],
     mood: "Comforting, warm, and versatile - any time is prata time",
   },
-  quote: "3am? No problem. Im Halal-certified and ready.",
+  quote: "3am prata hits different. That's all I'm saying.",
   category: "Street Food",
   quizAttributes: {
     energyLevel: "medium",
@@ -75,11 +73,11 @@ export const eggPrata: DishBase = {
     culturalAuthenticity: "street-smart",
   },
   memeContent: {
-    tiktokCaption: "prata flip fail compilation but make it 3am 🔄💀",
-    vibeCheck: "flipping master actually no",
-    memePotential: "curry dip or sugar debate continues 🫙🍬",
-    emojiCombo: ["🫓", "🥚", "🍛", "🌙", "🔥"],
-    internetSlang: ["bussin", "slay", "no cap", "vibes"],
+    tiktokCaption: "3am prata cravings again",
+    vibeCheck: "any time is prata time",
+    memePotential: "curry vs sugar (both are correct)",
+    emojiCombo: ["🫓", "🥚", "🍛", "🌙"],
+    internetSlang: ["late night", "anytime", "classic"],
   },
 };
 
@@ -91,19 +89,18 @@ export const fishHeadCurry: DishBase = {
   description:
     "A whole fish head swimming in spicy curry with vegetables and ladyfingers. Bold, unapologetic, and definitely not for the faint of heart. The dish that shows true food courage.",
   personalityTraits: [
-    "Adventurous eater",
-    "Not afraid to tackle challenges",
-    "Community-oriented (meant to share)",
-    "Bold and distinctive",
-    "Cultural pride",
-    "Takes courage to appreciate",
-    "The fearless leader of the table",
+    "The eyes are staring at you (embrace it)",
+    "Cheek meat is the prize",
+    "Group dish, solo order is chaos",
+    "Curry-soaked rice is the actual main event",
+    "Not for first dates",
+    "You either get it or you don't",
   ],
   visualStyle: {
     colors: ["#FF6347", "#FFD700", "#8B4513", "#228B22"],
     mood: "Bold, communal, and unapologetically unique - sharing is caring",
   },
-  quote: "Im not for everyone. And Im totally fine with that. 🐟",
+  quote: "Yes, the whole head. No, I won't explain why it's good.",
   category: "Restaurant Classic",
   quizAttributes: {
     energyLevel: "high",
@@ -116,11 +113,11 @@ export const fishHeadCurry: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "fish head gang where u at 🐟👀 #courage",
-    vibeCheck: "fearless foodie energy",
-    memePotential: "the eyes are watching me eat 💀👁️",
-    emojiCombo: ["🐟", "🌶️", "🍛", "👁️", "💪"],
-    internetSlang: ["slay", "goated", "courage", "no cap"],
+    tiktokCaption: "making eye contact with dinner",
+    vibeCheck: "adventurous eater certified",
+    memePotential: "fighting over the cheek meat",
+    emojiCombo: ["🐟", "🌶️", "🍛", "👁️"],
+    internetSlang: ["adventurous", "bold", "group meal"],
   },
 };
 
@@ -132,13 +129,12 @@ export const beeHoonSoup: DishBase = {
   description:
     "Thin rice noodles in a clear, comforting broth with toppings of your choice. Simple, clean, and nourishing - the dish that proves sometimes less really is more.",
   personalityTraits: [
-    "Clean and pure",
-    "The minimalist",
-    "Nurturing and caring",
-    "Straightforward but deep",
-    "The calm in chaos",
-    "Flexible with toppings",
-    "The friend whos always there when you need comfort",
+    "Clear broth, clear mind",
+    "Light but filling (somehow)",
+    "Choose your toppings wisely",
+    "Comfort food when everything else feels heavy",
+    "Not flashy, just reliable",
+    "The reset button in soup form",
   ],
   visualStyle: {
     colors: ["#F5F5DC", "#8B4513", "#228B22", "#FFEFD5"],
@@ -157,11 +153,11 @@ export const beeHoonSoup: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "clean eating but make it singapore 🍜✨",
-    vibeCheck: "pure vibes only",
-    memePotential: "the broth healed my soul 🫶🍵",
-    emojiCombo: ["🍜", "💆", "✨", "🍃", "🫶"],
-    internetSlang: ["healing", "clean", "vibes", "main character"],
+    tiktokCaption: "feeling light after bee hoon soup",
+    vibeCheck: "reset button activated",
+    memePotential: "clear broth supremacy",
+    emojiCombo: ["🍜", "🍃"],
+    internetSlang: ["comfort", "light", "soothing"],
   },
 };
 
@@ -173,13 +169,12 @@ export const yongTauFoo: DishBase = {
   description:
     "A build-your-own adventure of stuffed tofu, fish paste creations, and vegetables in clear broth or dry with sauce. The choose-your-own-adventure of Singaporean food.",
   personalityTraits: [
-    "The diplomat",
-    "Loves customization",
-    "Patient and thoughtful",
-    "Balanced and harmonious",
-    "Adaptable to preferences",
-    "The perfectionist chooser",
-    "The friend who makes sure everyones happy",
+    "Analysis paralysis at the stall",
+    "Every item picked tells a story",
+    "Dry or soup? Still deciding",
+    "Strategic plate builder",
+    "Green vegetables count (barely)",
+    "The customization champion",
   ],
   visualStyle: {
     colors: ["#F5F5DC", "#8B4513", "#228B22", "#FFD700"],
@@ -198,11 +193,11 @@ export const yongTauFoo: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "yong tau foo brain mode activated 🧠🎯",
-    vibeCheck: "strategic eater energy",
-    memePotential: "dry or soup? the eternal question 🫙🍜",
-    emojiCombo: ["🥢", "🫛", "🍖", "🎯", "🧠"],
-    internetSlang: ["main character", "no cap", "slay"],
+    tiktokCaption: "choosing YTF toppings (taking forever)",
+    vibeCheck: "decision fatigue incoming",
+    memePotential: "dry vs soup (still can't decide)",
+    emojiCombo: ["🥢", "🫛", "🍖"],
+    internetSlang: ["customizable", "choices", "strategic"],
   },
 };
 
@@ -214,19 +209,18 @@ export const friedCarrotCake: DishBase = {
   description:
     "Not actually made of carrots! Radish cake pan-fried with egg until crispy, doused in sweet soy sauce. The white version (Singapore style) knows whats up.",
   personalityTraits: [
-    "The local legend",
-    "Sweet and savory balance",
-    "Texture enthusiast",
-    "Morning person extraodinaire",
-    "Classic but not old-fashioned",
-    "Deep-fried happiness",
-    "The OG breakfast champion",
+    "White or black? (Choose your side)",
+    "Actually made of radish (plot twist)",
+    "Crispy edges are the best part",
+    "Sweet dark soy sauce changes everything",
+    "Hawker breakfast royalty",
+    "Texture contrast is the point",
   ],
   visualStyle: {
     colors: ["#F5F5DC", "#FFD700", "#8B4513", "#D2691E"],
     mood: "Warm, nostalgic, and satisfying - breakfast of true Singaporeans",
   },
-  quote: "Carrot? What carrot? Im radish, lah. 🧡",
+  quote: "It's called carrot cake but there's no carrot. Welcome to Singapore.",
   category: "Street Food",
   quizAttributes: {
     energyLevel: "medium",
@@ -239,11 +233,11 @@ export const friedCarrotCake: DishBase = {
     culturalAuthenticity: "street-smart",
   },
   memeContent: {
-    tiktokCaption: "white vs black carrot cake debate continues 🧡⚫",
-    vibeCheck: "true singaporean energy",
-    memePotential: "the crispy edges hit different 🍳💯",
-    emojiCombo: ["🧡", "🍳", "🌅", "🥢", "🇸🇬"],
-    internetSlang: ["bussin", "goated", "no thoughts", "slay"],
+    tiktokCaption: "white vs black carrot cake (team white)",
+    vibeCheck: "hawker breakfast essential",
+    memePotential: "no actual carrots were harmed",
+    emojiCombo: ["🍳", "🥢", "🇸🇬"],
+    internetSlang: ["classic", "breakfast", "crispy"],
   },
 };
 
@@ -255,19 +249,18 @@ export const oysterOmelette: DishBase = {
   description:
     "Eggs scrambled with plump oysters and starch, crispy on the edges, tender in the middle. The controversial topic that divides households but unites stomachs.",
   personalityTraits: [
-    "Bold and polarizing",
-    "Texture matters",
-    "Passionate defenders",
-    "Street food royalty",
-    "Not afraid of the stinky fish",
-    "The conversation starter",
-    "The friend you either love or learn to love",
+    "Crispy edges vs gooey center (eternal debate)",
+    "Oysters better be plump",
+    "That starch slurry divides nations",
+    "Sweet chili sauce is mandatory",
+    "You either love it or you're lying",
+    "Texture is everything here",
   ],
   visualStyle: {
     colors: ["#FFD700", "#F5F5DC", "#8B0000", "#696969"],
     mood: "Controversial, passionate, and deeply local - the hill some will die on",
   },
-  quote: "Crispy or soft? The debate never ends. 🌊",
+  quote: "The texture is polarizing and I stand by that.",
   category: "Street Food",
   quizAttributes: {
     energyLevel: "high",
@@ -280,11 +273,11 @@ export const oysterOmelette: DishBase = {
     culturalAuthenticity: "street-smart",
   },
   memeContent: {
-    tiktokCaption: "oyster omelette defender squad rise 🦪🛡️",
-    vibeCheck: "will die on this hill energy",
-    memePotential: "the crispy edges vs soft center debate 💀🌊",
-    emojiCombo: ["🦪", "🥚", "🔥", "⚔️", "💯"],
-    internetSlang: ["slay", "no cap", "main character", "vibes"],
+    tiktokCaption: "defending oyster omelette again",
+    vibeCheck: "texture debate champion",
+    memePotential: "crispy vs gooey (why not both)",
+    emojiCombo: ["🦪", "🥚", "🔥"],
+    internetSlang: ["polarizing", "texture", "debatable"],
   },
 };
 
