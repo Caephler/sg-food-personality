@@ -9,19 +9,19 @@ export const kayaToast: DishBase = {
   description:
     "Crispy toast slathered with kaya (coconut egg jam) and cold butter, paired with soft-boiled eggs and strong kopi. The breakfast of champions since 1919, still going strong.",
   personalityTraits: [
-    "Old soul with modern appeal",
-    "Dependable morning motivation",
-    "Classic and timeless",
-    "The early bird who wins",
-    "Strong and bold",
-    "Nostalgic but relevant",
-    "The morning person everyone admires (or hates)",
+    "5am regular at the kopitiam",
+    "Cold butter on hot toast is a religion",
+    "Knows the egg-kaya-kopi trinity by heart",
+    "Has a favorite uncle who makes it just right",
+    "Been the same since 1919, why change",
+    "Morning ritual, not just breakfast",
+    "Simple things done perfectly",
   ],
   visualStyle: {
     colors: ["#D2691E", "#F5F5DC", "#4B3621", "#FFEFD5"],
     mood: "Classic, nostalgic, and ready to conquer the day - kopi tiam vibes",
   },
-  quote: "Who needs an alarm when you have kaya?",
+  quote: "The cold butter melting into hot kaya is what mornings are for.",
   category: "Breakfast Classic",
   quizAttributes: {
     energyLevel: "high",
@@ -34,11 +34,11 @@ export const kayaToast: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "no thoughts just kaya toast at 5am 🤝🫡",
-    vibeCheck: "early bird legend 🐦",
-    memePotential: "brain fully mal Function after first bite 🍞💀",
-    emojiCombo: ["🥪", "🥚", "☕", "🇸🇬", "🫡"],
-    internetSlang: ["bussin", "goated", "no thoughts", "main character"],
+    tiktokCaption: "woke up at 5am for this (worth it)",
+    vibeCheck: "morning ritual unlocked",
+    memePotential: "the cold butter melting debate",
+    emojiCombo: ["🥪", "🥚", "☕", "🇸🇬"],
+    internetSlang: ["classic", "timeless", "ritual"],
   },
 };
 
@@ -50,11 +50,11 @@ export const kopi: DishBase = {
   description:
     "Singapore's beloved coffee, roasted with sugar and margarine to perfection. Strong, sweet, and served with condensed milk. The heartbeat of every kopi tiam.",
   personalityTraits: [
-    "Bold and authentic",
-    "No nonsense, just flavor",
-    "The original energy drink",
-    "Traditional and proud",
-    "The morning kickstart",
+    "Knows every kopi order variation",
+    "Roasted with sugar and margarine (non-negotiable)",
+    "Condensed milk ratio is an art form",
+    "Stronger than your espresso",
+    "Served in a glass cup or it's not the same",
   ],
   visualStyle: {
     colors: ["#4B3621", "#D2691E", "#F5F5DC"],
@@ -73,11 +73,11 @@ export const kopi: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "kopi gang rise up ☕🇸🇬",
-    vibeCheck: "local legend energy",
-    memePotential: "the condensed milk hits different 🐄💯",
-    emojiCombo: ["☕", "🇸🇬", "💪", "✨"],
-    internetSlang: ["bussin", "goated", "no cap"],
+    tiktokCaption: "kopi siu dai hits different",
+    vibeCheck: "knows the lingo",
+    memePotential: "ordering kopi like a local speedrun",
+    emojiCombo: ["☕", "🇸🇬", "💪"],
+    internetSlang: ["authentic", "traditional", "local"],
   },
 };
 
@@ -89,9 +89,10 @@ export const softBoiledEggs: DishBase = {
   description:
     "Perfectly soft-boiled eggs with a runny yolk, served with soy sauce and white pepper. The classic kopi tiam sidekick.",
   personalityTraits: [
-    "Simple but essential",
-    "The reliable sidekick",
-    "Perfect with everything",
+    "Timing is everything (60 seconds too long)",
+    "Dark soy and white pepper only",
+    "Never the main act, always essential",
+    "Dip your toast or scoop with a spoon (choose your fighter)",
   ],
   visualStyle: {
     colors: ["#FFD700", "#F5F5DC", "#8B4513"],
@@ -110,11 +111,11 @@ export const softBoiledEggs: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "soft boiled egg supremacy 🥚✨",
-    vibeCheck: "clean eating energy",
-    memePotential: "the yolk porn is real 🍳💯",
-    emojiCombo: ["🥚", "✨", "💕", "😤"],
-    internetSlang: ["bussin", "slay"],
+    tiktokCaption: "runny yolk appreciation post",
+    vibeCheck: "perfectly timed",
+    memePotential: "the dip vs scoop debate continues",
+    emojiCombo: ["🥚", "🥄"],
+    internetSlang: ["perfect", "simple", "essential"],
   },
 };
 
@@ -126,9 +127,10 @@ export const cendol: DishBase = {
   description:
     "Shaved ice dessert with green worm-like jelly, coconut milk, palm sugar, and red beans. The ultimate Singaporean cool-down treat.",
   personalityTraits: [
-    "Sweet and refreshing",
-    "The cool-down champion",
-    "Perfect balance of sweet",
+    "Green jelly worms never looked so good",
+    "Coconut milk and gula melaka therapy",
+    "Post-hawker heat emergency relief",
+    "Brain freeze is the price of paradise",
   ],
   visualStyle: {
     colors: ["#228B22", "#F5F5DC", "#8B4513", "#FF0000"],
@@ -147,11 +149,11 @@ export const cendol: DishBase = {
     culturalAuthenticity: "root-deep",
   },
   memeContent: {
-    tiktokCaption: "cendol on a hot day be like 🧊❄️",
-    vibeCheck: "refreshing energy",
-    memePotential: "the palm sugar hits different 🌴💯",
-    emojiCombo: ["🧊", "🍚", "🌴", "✨"],
-    internetSlang: ["bussin", "slay", "no cap"],
+    tiktokCaption: "cendol after spicy food (救命)",
+    vibeCheck: "instant relief",
+    memePotential: "gula melaka is liquid gold",
+    emojiCombo: ["🧊", "🌴", "🥥"],
+    internetSlang: ["refreshing", "sweet relief", "cooling"],
   },
 };
 
@@ -163,19 +165,18 @@ export const carbonaraLocalStyle: DishBase = {
   description:
     "Creamy pasta sauce meets local flavors - topped with crispy pork lard, spring onions, and a touch of belachan. The fusion dish that bridges East and West.",
   personalityTraits: [
-    "Cultural bridge builder",
-    "Adventurous fusion lover",
-    "East meets West mentality",
-    "Modern yet respectful of tradition",
-    "The diplomat of flavors",
-    "Creative risk-taker",
-    "The friend who introduces you to new things",
+    "Italian meets Southeast Asian (somehow it works)",
+    "Crispy pork lard on pasta is genius",
+    "Not authentic to anyone, loved by everyone",
+    "The dish that proves fusion can work",
+    "Spring onions where parsley used to be",
+    "Confuses Italian grandmas and Chinese aunties equally",
   ],
   visualStyle: {
     colors: ["#F5F5DC", "#FFD700", "#D2691E", "#228B22"],
     mood: "Sophisticated, modern, and unexpectedly harmonious",
   },
-  quote: "Why choose when you can have the best of both worlds? 🍝🇸🇬",
+  quote: "Yes there's pork lard on it. No I won't apologize.",
   category: "Modern Fusion",
   quizAttributes: {
     energyLevel: "medium",
@@ -188,10 +189,10 @@ export const carbonaraLocalStyle: DishBase = {
     culturalAuthenticity: "modern-fusion",
   },
   memeContent: {
-    tiktokCaption: "local style carbonara hitting different 🇨🇳🇮🇹✨",
-    vibeCheck: "fusion king energy",
-    memePotential: "the pork lard elevates everything 🥓💯",
-    emojiCombo: ["🍝", "🥓", "🇸🇬", "✨", "🎭"],
-    internetSlang: ["bussin", "slay", "no cap", "goated"],
+    tiktokCaption: "when fusion actually works",
+    vibeCheck: "cultural mashup champion",
+    memePotential: "pork lard on pasta (trust the process)",
+    emojiCombo: ["🍝", "🥓", "🇸🇬", "🇮🇹"],
+    internetSlang: ["fusion", "creative", "unexpected"],
   },
 };
