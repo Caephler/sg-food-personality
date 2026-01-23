@@ -2,7 +2,7 @@
  * Quiz Questions for Singaporean Food Personality Quiz
  *
  * Each question maps to specific personality attributes from dishes.ts
- * 12 questions covering the 8 quiz attributes + 2 bonus fun questions + 2 new texture/innovation questions
+ * 11 questions covering the 8 quiz attributes + 1 bonus fun question + 2 texture/innovation questions
  */
 
 import { dishes, type Dish, type DishModifier } from "./dishes/index";
@@ -248,36 +248,9 @@ export const questions: QuizQuestion[] = [
       },
     ],
   },
-  // Q9: Bonus - Friend Vibes
+  // Q9: Bonus - Food Philosophy
   {
     id: 9,
-    question: "How would ur friends describe u?",
-    answers: [
-      {
-        id: "a",
-        text: "The life of the party, always serving laughs 😂✨",
-        traits: { energyLevel: "high", socialPreference: "extrovert" },
-      },
-      {
-        id: "b",
-        text: "The reliable one, always there for u thru everything 💯🫶",
-        traits: { energyLevel: "medium", socialPreference: "ambivert" },
-      },
-      {
-        id: "c",
-        text: "The chill one, go with the flow vibes, low maintenance 😌✨",
-        traits: { energyLevel: "low", socialPreference: "introvert" },
-      },
-      {
-        id: "d",
-        text: "The ambitious one, always grinding and setting goals 🚀💪",
-        traits: { energyLevel: "high", adventureLevel: "adventurous" },
-      },
-    ],
-  },
-  // Q10: Bonus - Food Philosophy
-  {
-    id: 10,
     question: "Ur food philosophy in one sentence:",
     answers: [
       {
@@ -308,9 +281,9 @@ export const questions: QuizQuestion[] = [
       },
     ],
   },
-  // Q11: Texture Talk 💅
+  // Q10: Texture Talk 💅
   {
-    id: 11,
+    id: 10,
     question:
       "Texture Talk 💅 - When u think about the PERFECT dish, the texture should:",
     answers: [
@@ -336,9 +309,9 @@ export const questions: QuizQuestion[] = [
       },
     ],
   },
-  // Q12: Food Remix or OG? 🔄
+  // Q11: Food Remix or OG? 🔄
   {
-    id: 12,
+    id: 11,
     question:
       "Food Remix or OG? 🔄 - Someone suggests adding truffle to ur fav hawker dish. U:",
     answers: [
